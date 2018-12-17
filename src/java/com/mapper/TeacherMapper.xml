@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TeacherDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getTeacherbyAccount" resultType="com.entity.Teacher">
+        SELECT * FROM  standard_seminar_system.teacher WHERE account = #{0} and password=#{1}
+    </select>
+    <select id="getAllTeacher" resultType="com.entity.Teacher">
+         SELECT * FROM  standard_seminar_system.teacher;
+    </select>
+    <select id="getTeacherbyInfo" resultType="com.entity.Teacher">
+         SELECT * FROM  standard_seminar_system.teacher where account=#{info} or teacher_name=#{info};
+    </select>
+</mapper>
