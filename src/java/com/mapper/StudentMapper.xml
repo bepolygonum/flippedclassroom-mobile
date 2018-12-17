@@ -6,7 +6,4 @@
     <select id="getStudentbyAccount"  resultType="com.entity.Student">
         SELECT * FROM  standard_seminar_system.student WHERE account = #{0} and password=#{1}
     </select>
-    <select id="getAllStudent" resultType="com.entity.Student">
-         SELECT * FROM  standard_seminar_system.student;
-    </select>
 </mapper>

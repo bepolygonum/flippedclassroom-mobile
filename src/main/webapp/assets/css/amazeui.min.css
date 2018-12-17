@@ -136,8 +136,8 @@ samp {
 
 fieldset {
     border: 1px solid silver;
-    margin: 0 2px;
-    padding: .35em .625em .75em
+    margin: 10% 2px;
+    padding: 1em .625em 5em
 }
 
 legend {
@@ -313,7 +313,7 @@ ol,
 p,
 pre,
 ul {
-    margin: 0 0 1.6rem 0
+    margin: 0 0 .2rem 0
 }
 
 *+address,
@@ -585,7 +585,7 @@ select {
         width: 75%
     }
     .am-u-sm-10 {
-        width: 30%
+        width: 50%
     }
     .am-u-sm-11 {
         width: 91.66666667%
@@ -1468,7 +1468,7 @@ pre code {
 
 .am-btn {
     display: inline-block;
-    margin-bottom: 0;
+    margin: 0;
     padding: .5em 1em;
     vertical-align: middle;
     font-size: 1.6rem;
@@ -1588,6 +1588,12 @@ fieldset[disabled] .am-btn-default:hover {
     color: #fff;
     background-color: #0e90d2;
     border-color: #0e90d2
+}
+
+.am-btn-prim {
+    color: #fff;
+    background-color: #16d8df;
+    border-color: #16d8df;
 }
 
 a.am-btn-primary:visited {
@@ -1806,8 +1812,8 @@ fieldset[disabled] .am-btn-danger:hover {
 
 .am-btn-success {
     color: #fff;
-    background-color: #5eb95e;
-    border-color: #5eb95e
+    background-color: #23c0c0;
+    border-color: #23c0c0;
 }
 
 a.am-btn-success:visited {
@@ -1820,12 +1826,12 @@ a.am-btn-success:visited {
 .am-btn-success:hover,
 .am-dropdown.am-active .am-btn-success.am-dropdown-toggle {
     color: #fff;
-    border-color: #429842
+    border-color: #23c0c0
 }
 
 .am-btn-success:focus,
 .am-btn-success:hover {
-    background-color: #4aaa4a
+    background-color: #23c0c0
 }
 
 .am-btn-success.am-active,
@@ -1902,7 +1908,7 @@ fieldset[disabled] .am-btn-link:hover {
 }
 
 .am-btn-sm {
-    font-size: 1.4rem
+    font-size: 1.0rem
 }
 
 .am-btn-lg {
@@ -1950,7 +1956,7 @@ th {
 
 .am-table {
     width: 100%;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0rem;
     border-spacing: 0;
     border-collapse: separate
 }
@@ -2564,7 +2570,7 @@ input[type=date].am-form-field .am-input-lg {
 }
 
 .am-form-group {
-    margin-bottom: 1.5rem
+    margin-bottom: 3rem
 }
 
 .am-form-file {
@@ -3098,7 +3104,7 @@ input[type=radio][disabled] {
 }
 
 .am-topbar-brand {
-    margin: 0
+    margin: 0 10
 }
 
 @media only screen and (min-width:641px) {
@@ -3109,6 +3115,10 @@ input[type=radio][disabled] {
 
 .am-topbar-brand a:hover {
     color: #4d4d4d
+}
+
+.am-topbar-brand h2 {
+    color: #404040
 }
 
 .am-topbar-collapse {
@@ -3162,7 +3172,6 @@ input[type=radio][disabled] {
 .am-topbar-toggle {
     position: relative;
     float: right;
-    margin-right: 10px
 }
 
 @media only screen and (min-width:641px) {
@@ -3272,7 +3281,7 @@ input[type=radio][disabled] {
 }
 
 .am-topbar-btn {
-    margin-top: 8px
+    margin: 0
 }
 
 @media only screen and (max-width:640px) {
@@ -3766,7 +3775,7 @@ input[type=radio][disabled] {
     100% {
         opacity: 1;
         -webkit-transform: translateX(0);
-        transform: translateX(0)
+        transform: translateX(10)
     }
 }
 
@@ -4785,7 +4794,7 @@ a.am-close:hover {
 }
 
 [class*=am-icon-].am-fl {
-    margin-right: .3em
+    margin: 0.1em 0.2em 0.5em 0.6em
 }
 
 [class*=am-icon-].am-fr {

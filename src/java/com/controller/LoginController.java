@@ -17,16 +17,28 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @Controller
-public class AdminTeacherController {
+public class LoginController {
     @Autowired
     private TeacherServiceImpl teacherService;
     @Autowired
     private StudentServiceImpl studentService;
 
-    @RequestMapping(value = "/search-teacher", method = RequestMethod.GET)
-    public String search(Model model, @RequestParam String info, String admin_account) {
-        List<Teacher> teacherList =teacherService.getTeacherbyInfo(info);
-        model.addAttribute(teacherList);
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
+    public String login(Model model, @RequestParam String account, @RequestParam String password, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=gb2312");
+        PrintWriter out = response.getWriter();
+        Teacher teacher = teacherService.getTeacherbyAccount(account,password);
+        Student student = studentService.getStudentbyAccount(account,password);
+        if(teacher!=null){
+            return  "index_teacher";
+        }
+        else if(student!=null){
+            return "index_student";
+        }
+        else {
+            out.print("<script>alert('用户名或密码错误');history.go(-1);</script>");
+        }
         return "admin-teacher";
     }
+
 }

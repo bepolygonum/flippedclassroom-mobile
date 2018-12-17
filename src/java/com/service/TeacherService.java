@@ -4,7 +4,6 @@ import com.entity.Teacher;
 import java.util.List;
 
 public interface TeacherService {
-    Teacher getTeacherbyAccount(int account, String password);
-    List<Teacher> getAllTeacher();
+    Teacher getTeacherbyAccount(String account, String password);
     List<Teacher> getTeacherbyInfo(String info);
 }

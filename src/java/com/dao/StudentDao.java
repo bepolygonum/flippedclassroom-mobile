@@ -7,6 +7,5 @@ import java.util.List;
 
 @Repository
 public interface StudentDao {
-    Student getStudentbyAccount(int account, String password);
-    List<Student> getAllStudent();
+    Student getStudentbyAccount(String account, String password);
 }

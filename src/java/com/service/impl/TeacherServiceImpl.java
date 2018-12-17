@@ -11,12 +11,8 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
     TeacherDao teacherDao;
-    public Teacher getTeacherbyAccount(int account, String password) {
+    public Teacher getTeacherbyAccount(String account, String password) {
         return teacherDao.getTeacherbyAccount(account,password);
-    }
-    @Override
-    public List<Teacher> getAllTeacher(){
-        return teacherDao.getAllTeacher();
     }
 
     @Override

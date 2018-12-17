@@ -18,8 +18,6 @@ public class AdminStudentController{
 
     @RequestMapping(value = "/admin-student",method = RequestMethod.GET)
     public String adminstudent(Model model, @RequestParam String admin_account) {
-        List<Student>  studentList = studentService.getAllStudent();
-        model.addAttribute(studentList);
         return "admin-student";
     }
 }

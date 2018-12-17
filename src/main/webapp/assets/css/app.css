@@ -3,7 +3,7 @@
 html,
 body {
     background: #e9ecf3;
-    overflow: inherit;
+    overflow: auto;
 }
 
 ul,
@@ -38,23 +38,32 @@ a:hover {
 
 .am-topbar-brand {
     color: #337ab7;
-    margin-right: 20px;
 }
 
 .am-topbar-brand {
-    height: 75px;
-    line-height: 75px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 70%;
+}
+
+.am-topbar-brand1 {
+    color: #337ab7;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    padding: 0 5%;
 }
 
 .am-topbar {
-    min-height: 75px;
-    line-height: 75px;
+    min-height: 50px;
+    line-height: 50px;
 }
 
 .am-topbar-inverse .am-topbar-nav>li>a {
-    height: 75px;
-    line-height: 75px;
-    padding: 0 12px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 40px;
 }
 
 .am-topbar-inverse .am-topbar-nav>li>a:focus,
@@ -352,7 +361,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .tpl-page-header-fixed {
-    margin-top: 75px;
+    margin-top: 45px;
 }
 
 .tpl-navbar-collapse {
@@ -527,9 +536,10 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     text-shadow: none;
     font-weight: 300;
     top: 2px;
-    margin-left: 1px;
+    margin-left: 5px;
     margin-right: 6px;
     color: #a7bdcd;
+    margin-top: -8px;
 }
 
 .tpl-left-nav-item .nav-link:hover {
@@ -1090,7 +1100,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .input-icon {
     position: relative;
-    left: 0;
+    float: right;
 }
 
 .input-icon i {
@@ -1134,7 +1144,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .form-control {
     height: 30px;
-    padding: 2px 26px 3px 10px;
+    padding: 2px 6px 3px 10px;
     font-size: 13px;
 }
 
@@ -1146,7 +1156,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 .tpl-portlet-input {
     float: right;
     display: inline-block;
-    padding: 4px 0;
+    padding: 0;
 }
 
 .wrapper {
@@ -1416,7 +1426,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     background-color: #fff;
     margin-top: 0;
     margin-bottom: 25px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .tpl-portlet-components .portlet-title {
@@ -1862,12 +1872,11 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .myapp-login-logo-text {
-    padding-top: 30px;
-    padding-bottom: 40px;
+    padding: 50px 0px;
     font-family: Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
     color: #fff;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
     width: 100%;
 }
@@ -1896,9 +1905,9 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     font-family: "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
     width: 100%;
     color: #5e5e5e;
-    text-align: center;
-    padding: 20px 0;
-    padding-top: 10px;
+    text-align: right;
+    padding: 5px 0;
+    padding-top: 4px;
 }
 
 .login-font i {
@@ -1910,13 +1919,40 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     color: #fff;
 }
 
+.login-down {
+    font-size: 12px;
+    font-family: "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+    width: 100%;
+    color: #5e5e5e;
+    text-align: center;
+    padding: 25px 0 0;
+}
+
+.login-down i {
+    color: #53d192;
+    font-style: normal;
+}
+
+.login-down span {
+    color: #fff;
+}
+
 .myapp-login .am-form-group {
     margin-bottom: 0;
 }
 
-.login-am-center {
-    margin: 0 auto;
+
+/* .login-am-center {
+    margin: 8% auto;
     float: none;
+} */
+
+.login-am-center {
+    width: 75%;
+    height: 50%;
+    position: fixed;
+    left: 13%;
+    top: 12%;
 }
 
 .login-am-center .am-form input {
@@ -1944,11 +1980,12 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-login-max {
     max-width: 640px;
-    margin: 0 auto;
+    margin: 5% auto 0;
 }
 
 .am-topbar-btn {
-    margin-top: 21px;
+    margin-top: 15px;
+    margin-right: 15px;
 }
 
 .tpl-chart-mb {
@@ -1960,7 +1997,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     .tpl-left-nav-hover {
         display: none;
         width: 100%;
-        margin-bottom: 10px;
+        margin: 10px 0;
     }
     .tpl-left-nav-list {
         width: 100%;
