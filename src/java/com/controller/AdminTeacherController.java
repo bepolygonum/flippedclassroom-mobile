@@ -19,8 +19,6 @@ import java.util.List;
 @Controller
 public class AdminTeacherController {
     @Autowired
-    private AdminServiceImpl adminService;
-    @Autowired
     private TeacherServiceImpl teacherService;
     @Autowired
     private StudentServiceImpl studentService;
