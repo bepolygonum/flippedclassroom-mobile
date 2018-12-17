@@ -1,8 +1,6 @@
 package com.controller;
 
-import com.entity.Student;
 import com.entity.Teacher;
-import com.service.impl.StudentServiceImpl;
 import com.service.impl.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,25 +18,20 @@ import java.util.List;
 public class LoginController {
     @Autowired
     private TeacherServiceImpl teacherService;
-    @Autowired
-    private StudentServiceImpl studentService;
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String login(Model model, @RequestParam String account, @RequestParam String password, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=gb2312");
         PrintWriter out = response.getWriter();
         Teacher teacher = teacherService.getTeacherbyAccount(account,password);
-        Student student = studentService.getStudentbyAccount(account,password);
         if(teacher!=null){
-            return  "index_teacher";
-        }
-        else if(student!=null){
-            return "index_student";
+            model.addAttribute(teacher);
+            return  "home";
         }
         else {
             out.print("<script>alert('用户名或密码错误');history.go(-1);</script>");
         }
-        return "admin-teacher";
+        return "";
     }
 
 }
