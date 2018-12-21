@@ -7,7 +7,8 @@ import java.util.List;
 
 @Repository
 public interface TeacherDao {
-    Teacher getTeacherbyAccount(String account, String password);
+    Teacher getTeacherByAccount(String account, String password);
+    List<Teacher> getTeacherByInfo(String info);
+    List<Teacher> getTeachersByTeacherID(List<Integer> teacherIds);
 
-    List<Teacher> getTeacherbyInfo(String info);
 }

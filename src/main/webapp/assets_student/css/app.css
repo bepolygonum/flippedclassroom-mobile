@@ -357,7 +357,10 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-page-container {
     margin: 0;
-    padding: 20px 20px 0;
+}
+.tpl-page-container1 {
+    margin: 0;
+    padding: 1rem 1rem 0;
 }
 
 .tpl-page-header-fixed {
@@ -550,6 +553,10 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     padding-left: 15px;
 }
 
+.courseName{
+    font-size: 2rem;margin-left: -0.6rem;
+}
+
 .tpl-left-nav-item .nav-link:hover i,
 .tpl-left-nav-sub-menu a:hover i {
     color: #5b9bd1;
@@ -578,7 +585,9 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     padding: 0;
     margin: 0;
 }
-
+.myScore{
+    color: #007431;margin-left: 0.3rem;
+}
 .tpl-header-nav-hover-ico {
     color: #C0CDDC!important;
     font-size: 19px!important;
@@ -1428,6 +1437,22 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     margin-bottom: 25px;
     overflow: auto;
 }
+.tpl-portlet-components1 {
+    border: 0.3rem solid #e7ecf1;
+    padding: 10px 10px 10px;
+    background-color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    overflow: auto;
+}
+.tpl-portlet-components2 {
+    border: 0.3rem solid #e7ecf1;
+    padding: 1px 1px 1px;
+    background-color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    overflow: auto;
+}
 
 .tpl-portlet-components .portlet-title {
     border-bottom: 1px solid #eef1f5;
@@ -1449,6 +1474,11 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
+}
+.tpl-block1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
 }
 
 .tpl-alert {
@@ -1687,7 +1717,19 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .tpl-amazeui-form {}
+.mylabel{
+     float: left;font-size: 1.5rem;width: 37%;font-size:1.5rem
+ }
+.myLabel{font-size: 1.5rem
+}
+.myLabelQA{font-size: 2rem;color: #bf5c57;
+}
 
+.myLabel1{font-size: 1.5rem;color: #ff7674;
+}
+.myDiv{
+    width:63%;text-align: center;float: left
+}
 .tpl-amazeui-form .am-form-label {
     color: #999;
     font-weight: normal;

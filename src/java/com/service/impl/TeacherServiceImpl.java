@@ -11,12 +11,19 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
     TeacherDao teacherDao;
-    public Teacher getTeacherbyAccount(String account, String password) {
-        return teacherDao.getTeacherbyAccount(account,password);
+    public Teacher getTeacherByAccount(String account, String password) {
+        return teacherDao.getTeacherByAccount(account,password);
     }
 
     @Override
-    public List<Teacher> getTeacherbyInfo(String info) {
-        return teacherDao.getTeacherbyInfo(info);
+    public List<Teacher> getTeacherByInfo(String info) {
+        return teacherDao.getTeacherByInfo(info);
     }
+
+    @Override
+    public List<Teacher> getTeachersByTeacherID(List<Integer> teacherIds)
+    {
+        return teacherDao.getTeachersByTeacherID(teacherIds);
+    }
+
 }

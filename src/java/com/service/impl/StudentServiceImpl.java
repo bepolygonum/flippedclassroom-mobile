@@ -11,7 +11,19 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentDao studentDao;
-    public Student getStudentbyAccount(String account, String password) {
-        return studentDao.getStudentbyAccount(account,password);
+    public Student getStudentByAccount(String account, String password) {
+        return studentDao.getStudentByAccount(account,password);
     }
+
+    @Override
+    public int getTeamIdByStudentId(int id,int course_id) {
+        return  studentDao.getTeamIdByStudentId(id,course_id);
+    }
+
+    @Override
+    public List<Student> getStudentByStudentID(List<Integer> studentIds)
+    {
+        return studentDao.getStudentByStudentID(studentIds);
+    }
+
 }

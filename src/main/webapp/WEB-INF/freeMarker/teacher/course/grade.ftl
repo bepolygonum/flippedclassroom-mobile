@@ -5,18 +5,35 @@
     <meta charset="utf-8">
     <title>学生成绩</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
-    <link rel="stylesheet" href="../../assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../../assets/css/admin.css">
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <script src="../../assets/js/echarts.min.js"></script>
+    <link rel="icon" type="image/png" href="../../../../assets/i/favicon.png">
+    <link rel="stylesheet" href="../../../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../../assets/css/app.css">
+    <script src="../../../../assets/js/echarts.min.js"></script>
 </head>
 
+<script>
+    function doPost(to) { // to:提交动作（action）,p:参数
+        var myForm = document.createElement("form");
+        myForm.method = "post";
+        myForm.action = to;
+
+        var myInput = document.createElement("input");
+        myInput.setAttribute("name", "id"); // 为input对象设置name
+
+        myInput.setAttribute("value", "${id}"); // 为input对象设置value
+        myForm.appendChild(myInput);
+
+        document.body.appendChild(myForm);
+        myForm.submit();
+        document.body.removeChild(myForm); // 提交后移除创建的form
+    }
+</script>
 
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand1">
-        <a href="seminar.html">
+        <a href="courselist.html">
             <div class="am-icon-chevron-left" style="color: darkgray"></div>
         </a>
     </div>
@@ -24,23 +41,18 @@
         <h3>学生成绩</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-
         <span class="am-icon-bars"></span>
     </button>
-    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">用户名</span>
-                </a>
-                <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
-                    <li><a href="index_personal.html"><span class="am-icon-user"></span> 个人信息</a></li>
-                    <li><a href="index_personal.html"><span class="am-icon-leanpub"></span> 讨论课</a></li>
-                    <li><a href="login.html"><span class="am-icon-power-off"></span>退出</a></li>
-                </ul>
 
-            </li>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+
+            <li><a href="index_message.html" class="tpl-header-list-link"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-user"></span> 个人信息</a></li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-leanpub"></span> 讨论课</a></li>
+            <li><a href="login.html" class="tpl-header-list-link"><span class="am-icon-power-off"></span>退出</a></li>
+
         </ul>
     </div>
 </header>
@@ -63,9 +75,12 @@
                             <#if teamList?exists>
                                 <#list teamList as team>
                                     <#if team.getId()==item.getTeam_id()>
+                                        <#if klassList?exists>
+                                            <#list klassList as klass>
+                                                <#if klass.getId()==team.getKlass_id()>
                             <li class="tpl-left-nav-item">
                                 <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                                    <span>${team.getTeam_name()}</span><!-- 1-1 -->
+                                    <span>${klass.getKlass_serial()}-${team.getTeam_serial()}</span><!-- 1-1 -->
                                     <span style="margin-left: 100px">${item.getTotal_score()}</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>
@@ -122,6 +137,9 @@
                                     </li>
                                 </ul>
                             </li>
+                                                </#if>
+                                            </#list>
+                                        </#if>
                                     </#if>
                                 </#list>
                             </#if>
@@ -138,9 +156,9 @@
 
 </div>
 
-<script src="../../assets/js/jquery.min.js"></script>
-<script src="../../assets/js/amazeui.min.js"></script>
-<script src="../../assets/js/app.js"></script>
+<script src="../../../../assets/js/jquery.min.js"></script>
+<script src="../../../../assets/js/amazeui.min.js"></script>
+<script src="../../../../assets/js/app.js"></script>
 </body>
 
 </html>

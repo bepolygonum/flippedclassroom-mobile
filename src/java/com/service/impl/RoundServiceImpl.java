@@ -6,6 +6,7 @@ import com.dao.SeminarDao;
 import com.entity.Round;
 import com.entity.RoundScore;
 import com.entity.Seminar;
+import com.service.RoundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service(value = "RoundService")
-public class RoundServiceImpl {
+public class RoundServiceImpl implements RoundService {
     @Autowired
     RoundDao roundDao;
     @Autowired

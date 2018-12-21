@@ -11,4 +11,8 @@
         </foreach>
     </select>
 
+    <select id="getSeminarByCourseID" resultType="com.entity.Seminar">
+        SELECT  * FROM  standard_seminar_system.seminar WHERE course_id=#{0}
+    </select>
+
 </mapper>

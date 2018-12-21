@@ -6,9 +6,7 @@ import com.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service(value = "CourseService")
@@ -18,36 +16,50 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     RoundDao roundDao;
     @Autowired
+    ConflictCourseStrategyDao conflictCourseStrategyDao;
+    @Autowired
     RoundScoreDao roundScoreDao;
     @Autowired
     KlassDao klassDao;
     @Autowired
     SeminarDao seminarDao;
 
-
-
     @Override
-    public List<Course> getCoursebyTeacherID(int id)
+    public List<Course> getCourseByTeacherID(int id)
     {
-        return courseDao.getCoursebyTeacherID(id);
+        return courseDao.getCourseByTeacherID(id);
     }
 
-    //@Override
-    //public void getAllRoundScoreByCourseID(int courseId)
-    //{
-        //List<Team> teams=teamDao.getTeamByCourseID(courseId);//根据课程id获得所有team
+    @Override
+    public List<Course> getConflictCourseByCourseID(int courseId)
+    {
+        List<Integer> course1ID=conflictCourseStrategyDao.getCourse1IDByCourseID(courseId);
+        List<Integer> course2ID=conflictCourseStrategyDao.getCourse2IDByCourseID(courseId);
+        course1ID.removeAll(course2ID);
+        course1ID.addAll(course2ID);
+        List<Course> conflictCourseList;
+        conflictCourseList = courseDao.getCoursesByCourseID(course1ID);
+        return conflictCourseList;
+    }
 
-        //List<Round> rounds = roundDao.getRoundByCourseID(courseId);//根据课程id获得所有rounds
-        //List<Integer> roundIds=rounds.stream().map(Round::getId).collect(Collectors.toList());//所有rounds的id集合
-        //List<RoundScore> roundScores=roundScoreDao.getRoundScoreByRoundID(roundIds);//某课程下所有rounds的成绩
+    //student
+    @Override
+    public List<Course> getCourseByStudentID(int id){
+        List list = courseDao.getCourseByStudentID(id);
+        List<Course> courses=new ArrayList<Course>();
+        Iterator it = list.iterator();
+        while(it.hasNext()){
+            courses.add(courseDao.getCourseByCourseID(Integer.valueOf(it.next().toString())));
+        }
+        return courses;
+    }
 
-        //List<Seminar> seminars=seminarDao.getSeminarByRoundID(roundIds,courseId);
-        //List<Integer> seminarIds=seminars.stream().map(Seminar::getId).collect(Collectors.toList());//某课程下所有seminar的id
+    public Course getCourseByCourseID(int course_id) {
+        return courseDao.getCourseByCourseID(course_id);
+    }
 
-        //List<Integer> klassIds=klassDao.getKlassIDByCourseID(courseId);//根据课程id获得所有班级id
-        //List<Integer> klassSeminarIds=klassSeminarDao.getKlassSeminarIDByKlassIdSeminarID(klassIds,seminarIds);
-        //List<SeminarScore> seminarScores=seminarScoreDao.getSeminarScoreByKlassSeminarID(klassSeminarIds);
-
-
-    //}
+    @Override
+    public CourseMemberLimitStrategy getCourseMemberLimitByCourseID(int course_id) {
+        return null;
+    }
 }

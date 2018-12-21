@@ -10,4 +10,5 @@
             #{klassSeminarIds}
         </foreach>
     </select>
+
 </mapper>

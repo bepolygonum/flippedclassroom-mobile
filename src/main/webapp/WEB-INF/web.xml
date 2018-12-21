@@ -91,8 +91,13 @@
         <url-pattern>*.otf</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.svg</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.ftl</welcome-file>
     </welcome-file-list>
 
     <!-- session配置 -->

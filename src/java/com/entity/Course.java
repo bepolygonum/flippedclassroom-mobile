@@ -1,6 +1,7 @@
 package com.entity;
 
-import java.sql.Timestamp;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Course {
     private int id;
@@ -10,6 +11,19 @@ public class Course {
     private int presentation_percentage;
     private int question_percentage;
     private int report_percentage;
+    private int team_main_course_id;
+    private int seminar_main_course_id;
+
+
+    private Date startTime;
+    private String team_start_time;
+    private SimpleDateFormat startSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    private Date endTime;
+    private String team_end_time;
+    private SimpleDateFormat endSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
 
     public int getId() {
         return id;
@@ -67,22 +81,6 @@ public class Course {
         this.report_percentage = report_percentage;
     }
 
-    public Timestamp getTeam_start_time() {
-        return team_start_time;
-    }
-
-    public void setTeam_start_time(Timestamp team_start_time) {
-        this.team_start_time = team_start_time;
-    }
-
-    public Timestamp getTeam_end_time() {
-        return team_end_time;
-    }
-
-    public void setTeam_end_time(Timestamp team_end_time) {
-        this.team_end_time = team_end_time;
-    }
-
     public int getTeam_main_course_id() {
         return team_main_course_id;
     }
@@ -99,9 +97,56 @@ public class Course {
         this.seminar_main_course_id = seminar_main_course_id;
     }
 
-    private Timestamp team_start_time;
-    private Timestamp team_end_time;
-    private int team_main_course_id;
-    private int seminar_main_course_id;
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+        String time = startSdf.format(startTime);
+        setTeam_start_time(time);
+    }
+
+    public String getTeam_start_time() {
+        return team_start_time;
+    }
+
+    public void setTeam_start_time(String team_start_time) {
+        this.team_start_time = team_start_time;
+    }
+
+    public SimpleDateFormat getStartSdf() {
+        return startSdf;
+    }
+
+    public void setStartSdf(SimpleDateFormat startSdf) {
+        this.startSdf = startSdf;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+        String time = endSdf.format(endTime);
+        setTeam_end_time(time);
+    }
+    public String getTeam_end_time() {
+        return team_end_time;
+    }
+
+    public void setTeam_end_time(String team_end_time) {
+        this.team_end_time = team_end_time;
+    }
+
+    public SimpleDateFormat getEndSdf() {
+        return endSdf;
+    }
+
+    public void setEndSdf(SimpleDateFormat endSdf) {
+        this.endSdf = endSdf;
+    }
+
 
 }

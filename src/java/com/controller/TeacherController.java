@@ -1,11 +1,9 @@
 package com.controller;
 
+import com.dao.ConflictCourseStrategyDao;
 import com.entity.*;
-import com.service.TeamService;
-import com.service.impl.CourseServiceImpl;
-import com.service.impl.KlassServiceImpl;
-import com.service.impl.RoundServiceImpl;
-import com.service.impl.TeamServiceImpl;
+import com.service.StudentService;
+import com.service.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Controller
 
+@RequestMapping(value = "/teacher")
 public class TeacherController {
     @Autowired
     private CourseServiceImpl courseService;
@@ -27,17 +26,23 @@ public class TeacherController {
     private RoundServiceImpl roundService;
     @Autowired
     private TeamServiceImpl teamService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private TeacherServiceImpl teacherService;
+
+
 
     @RequestMapping(value = "/courseManage", method = RequestMethod.POST)
     public String findCourse(Model model, @RequestParam String id ) {
         int tid=Integer.parseInt(id);
-        List<Course> courseList = courseService.getCoursebyTeacherID(tid);
+        List<Course> courseList = courseService.getCourseByTeacherID(tid);
         model.addAttribute(courseList);
         model.addAttribute("id",tid);
-        return "courseManage";
+        return "teacher/courseManage";
     }
 
-    @RequestMapping(value = "/teacher/course/grade")
+    @RequestMapping(value = "/course/grade")
     public String findAllGrade(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
@@ -54,15 +59,56 @@ public class TeacherController {
 
         List<Team> teamList=teamService.getTeamByCourseID(course_id);
 
+        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+
         model.addAttribute(roundScoreList);
         model.addAttribute(seminarList);
         model.addAttribute(seminarScoreList);
         model.addAttribute(klassSeminarList);
         model.addAttribute(teamList);
         model.addAttribute("id",tid);
-
-
+        model.addAttribute(klassList);
         return "/teacher/course/grade";
     }
 
+    @RequestMapping(value = "/course/teamList")
+    public String findAllTeam(Model model,@RequestParam String id,@RequestParam String courseId)
+    {
+        int tid=Integer.parseInt(id);
+        int course_id=Integer.parseInt(courseId);
+        List<KlassStudent> klassStudentList=klassService.getKlassStudentByCourseID(course_id);
+        List<Team> teamList=teamService.getTeamByCourseID(course_id);
+
+        List<Integer> studentIds=klassStudentList.stream().map(KlassStudent::getStudent_id).collect(Collectors.toList());//某课程下所有学生的id
+        List<Student> studentList=studentService.getStudentByStudentID(studentIds);
+
+        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+
+        model.addAttribute(teamList);
+        model.addAttribute(klassStudentList);
+        model.addAttribute(studentList);
+        model.addAttribute(klassList);
+        model.addAttribute("id",tid);
+        return "/teacher/course/teamList";
+    }
+
+    @RequestMapping(value = "/course/info")
+    public String findCourseInfo(Model model,@RequestParam String id,@RequestParam String courseId)
+    {
+        int tid=Integer.parseInt(id);
+        int course_id=Integer.parseInt(courseId);
+        List<Course> courseList=courseService.getConflictCourseByCourseID(course_id);
+        Course course=courseService.getCourseByCourseID(course_id);
+        CourseMemberLimitStrategy courseMemberLimitStrategy=courseService.getCourseMemberLimitByCourseID(course_id);
+
+        List<Integer> teacherIds=courseList.stream().map(Course::getTeacher_id).collect(Collectors.toList());
+        List<Teacher> teacherList=teacherService.getTeachersByTeacherID(teacherIds);
+
+        model.addAttribute(courseList);
+        model.addAttribute(course);
+        model.addAttribute(teacherList);
+        model.addAttribute(courseMemberLimitStrategy);
+        model.addAttribute("id",tid);
+        return "/teacher/course/info";
+    }
 }

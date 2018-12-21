@@ -3,7 +3,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.StudentDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="getStudentbyAccount"  resultType="com.entity.Student">
+    <select id="getStudentByAccount"  resultType="com.entity.Student">
         SELECT * FROM  standard_seminar_system.student WHERE account = #{0} and password=#{1}
+    </select>
+    <select id="getTeamIdByStudentId"  resultType="Integer">
+        SELECT team_id FROM  standard_seminar_system.klass_student WHERE student_id = #{0} and  course_id=#{1}
+    </select>
+    <select id="getStudentByStudentID"  resultType="com.entity.Student">
+        SELECT * FROM  standard_seminar_system.student
+        WHERE id in
+        <foreach  collection="list" item="studentIds" open="(" separator="," close=")">
+            #{studentIds}
+        </foreach>
     </select>
 </mapper>
