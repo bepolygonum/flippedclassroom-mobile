@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.KlassSeminarDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getKlassSeminarIDByKlassIdSeminarID" resultType="java.lang.Integer">
+        SELECT id FROM  standard_seminar_system.klass_seminar
+        WHERE klass_id in
+        <foreach collection="klassIds"  item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and seminar_id in
+        <foreach collection="seminarIds"  item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getKlassSeminarByKlassIdSeminarID" resultType="com.entity.KlassSeminar">
+        SELECT * FROM  standard_seminar_system.klass_seminar
+        WHERE klass_id in
+        <foreach collection="klassIds"  item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and seminar_id in
+        <foreach collection="seminarIds"  item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>

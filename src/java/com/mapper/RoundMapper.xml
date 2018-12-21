@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.CourseDao">
+<mapper namespace="com.dao.RoundDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="getCoursebyTeacherID"  resultType="com.entity.Course">
-        SELECT * FROM  standard_seminar_system.course WHERE teacher_id=#{id}
+    <select id="getRoundByCourseID"  resultType="com.entity.Round">
+        SELECT * FROM  standard_seminar_system.round WHERE course_id=#{courseId}
     </select>
 
 </mapper>

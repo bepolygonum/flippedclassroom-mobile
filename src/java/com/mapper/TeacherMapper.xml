@@ -9,4 +9,5 @@
     <select id="getTeacherbyInfo" resultType="com.entity.Teacher">
          SELECT * FROM  standard_seminar_system.teacher where account=#{info} or teacher_name=#{info};
     </select>
+
 </mapper>

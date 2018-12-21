@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface TeacherDao {
     Teacher getTeacherbyAccount(String account, String password);
+
     List<Teacher> getTeacherbyInfo(String info);
 }

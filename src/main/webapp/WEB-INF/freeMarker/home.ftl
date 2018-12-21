@@ -21,9 +21,9 @@
             myForm.action = to;
 
             var myInput = document.createElement("input");
-            myInput.setAttribute("name", "account"); // 为input对象设置name
+            myInput.setAttribute("name", "id"); // 为input对象设置name
 
-            myInput.setAttribute("value", "${teacher.getAccount()}"); // 为input对象设置value
+            myInput.setAttribute("value", "${teacher.getId()}"); // 为input对象设置value
             myForm.appendChild(myInput);
 
             document.body.appendChild(myForm);

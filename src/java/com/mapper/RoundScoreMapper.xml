@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.RoundScoreDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getRoundScoreByRoundID"  resultType="com.entity.RoundScore">
+        SELECT * FROM  standard_seminar_system.round_score
+        WHERE round_id in
+        <foreach  collection="list" item="roundIds" open="(" separator="," close=")">
+              #{roundIds}
+        </foreach>
+    </select>
+</mapper>

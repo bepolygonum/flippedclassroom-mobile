@@ -5,5 +5,6 @@ import com.entity.Course;
 import java.util.List;
 
 public interface CourseDao {
-    List<Course> getCoursebyAccount(String account);
+    List<Course> getCoursebyTeacherID(int id);
+
 }
