@@ -24,7 +24,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course_id}-${klass_id} </h3>
+        <h3>${course.getCourse_name()}-${klass_id} </h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
@@ -49,35 +49,39 @@
     <div class="tpl-portlet-components">
         <div class="tpl-block">
             <div class="am-g">
+                    <#list roundScoreList as roundScore>
+                        <div class="am-u-sm-12">
+                            <li class="tpl-left-nav-item">
+                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
+                                    <label style="font-size: 1.7rem;color: #007431">第${roundScore_index+1}轮</label>
+                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right" style="margin-top: 0.1rem"></i>
+                                </a>
+                                <ul class="tpl-left-nav-sub-menu">
+                                    <div>
+                                        <#list seminarList as seminar>
+                                            <#if seminar.getRound_id()==seminar.getRound_id()>
+                                                <#list seminarScoreList as seminarScore>
 
-                               <#list seminarList as seminar>
-                                   <!--#if seminar.getRound_id()==roundScore.getRound_id()-->
-                                   <div class="am-u-sm-12">
-                                       <li class="tpl-left-nav-item">
+                                                    <#if seminarScore.getKlass_seminar_id()==seminar.getId()>
 
-                                           <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
-                                               <label style="font-size: 1.7rem;color: #007431">第1轮</label>
-                                               <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right" style="margin-top: 0.1rem"></i>
-                                           </a>
-                                           <ul class="tpl-left-nav-sub-menu">
-
-                            <#list seminarScoreList as seminarScore>
-                                <div>
-                                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
-                                        <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminar_name()}</span>
-                                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                                    </a>
-                                    <div class="tpl-left-nav-sub-menu">
-                                        <span class="myLabel">展示:</span><span class="myScore">${seminarScore.getPresentation_score()}</span><br>
-                                        <span class="myLabel">提问:</span><span class="myScore">${seminarScore.getQuestion_score()}</span><br>
-                                        <span class="myLabel">书面报告:</span><span class="myScore">${seminarScore.getReport_score()}</span><br>
-                                        <span class="myLabel">本次总成绩:</span><span class="myScore">${seminarScore.getTotal_score()}</span><br>
-                                        <!--span class="myLabel">本轮总成绩:</span><span class="myScore"></span-->
+                                                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
+                                                            <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminar_name()}</span>
+                                                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                                                        </a>
+                                                        <div class="tpl-left-nav-sub-menu">
+                                                            <span class="myLabel">展示:</span><span class="myScore">${seminarScore.getPresentation_score()}</span><br>
+                                                            <span class="myLabel">提问:</span><span class="myScore">${seminarScore.getQuestion_score()}</span><br>
+                                                            <span class="myLabel">书面报告:</span><span class="myScore">${seminarScore.getReport_score()}</span><br>
+                                                            <span class="myLabel">本次总成绩:</span><span class="myScore">${seminarScore.getTotal_score()}</span><br>
+                                                            <!--span class="myLabel">本轮总成绩:</span><span class="myScore"></span-->
+                                                        </div>
+                                                    </#if>
+                                                </#list>
+                                            </#if>
+                                        </#list>
                                     </div>
-                                </div>
-                            </#list>
-                                               </#list>
-
+                        </div>
+                    </#list>
             </div>
         </div>
     </div>

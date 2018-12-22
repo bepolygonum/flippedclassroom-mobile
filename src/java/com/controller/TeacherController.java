@@ -100,10 +100,8 @@ public class TeacherController {
         List<Course> courseList=courseService.getConflictCourseByCourseID(course_id);
         Course course=courseService.getCourseByCourseID(course_id);
         CourseMemberLimitStrategy courseMemberLimitStrategy=courseService.getCourseMemberLimitByCourseID(course_id);
-
         List<Integer> teacherIds=courseList.stream().map(Course::getTeacher_id).collect(Collectors.toList());
         List<Teacher> teacherList=teacherService.getTeachersByTeacherID(teacherIds);
-
         model.addAttribute(courseList);
         model.addAttribute(course);
         model.addAttribute(teacherList);

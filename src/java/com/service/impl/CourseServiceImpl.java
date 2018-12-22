@@ -23,7 +23,8 @@ public class CourseServiceImpl implements CourseService {
     KlassDao klassDao;
     @Autowired
     SeminarDao seminarDao;
-
+    @Autowired
+    CourseMemberLimitStrategyServiceImpl courseMemberLimitStrategyDao;
     @Override
     public List<Course> getCourseByTeacherID(int id)
     {
@@ -59,7 +60,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseMemberLimitStrategy getCourseMemberLimitByCourseID(int course_id) {
-        return null;
+    public CourseMemberLimitStrategy getCourseMemberLimitByCourseID(int courseId)
+    {
+        return courseMemberLimitStrategyDao.getCourseMemberLimitStrategyByCourseID(courseId);
     }
+
 }

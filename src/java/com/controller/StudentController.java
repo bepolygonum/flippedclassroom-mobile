@@ -64,17 +64,16 @@ public class StudentController {
         int courseId=Integer.valueOf(course_id);
         int klassId=Integer.valueOf(klass_id);
 
+        Course course=courseService.getCourseByCourseID(courseId);//获取course
         int team_id=studentService.getTeamIdByStudentId(Id,courseId);//获取team_id
         List<Seminar> seminarList=seminarService.getSeminarByCourseID(courseId);//获取该课程所有的seminar
 
         List<SeminarScore> seminarScoreList=seminarService.getSeminarScoreByTeamIdAndKlassId(team_id,klassId);//获取该team该班级的score
-        System.out.println("asdsf");
         List<RoundScore> roundScoreList=roundService.getRoundScoreByCourseID(courseId);//获取本轮总成绩
-        System.out.println("asdsf");
         Iterator<RoundScore> it = roundScoreList.iterator();
         while(it.hasNext()){
             RoundScore x = it.next();
-            if(x.getTeam_id()==team_id){
+            if(x.getTeam_id()!=team_id){
                 it.remove();
             }
         }
@@ -86,7 +85,7 @@ public class StudentController {
         model.addAttribute(seminarList);
         model.addAttribute(seminarScoreList);
         model.addAttribute("klass_id",klass_id);
-        model.addAttribute("course_id",course_id);
+        model.addAttribute(course);
         return "/student/courseScore";
     }
 }
