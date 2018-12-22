@@ -52,18 +52,17 @@
                     <#list roundScoreList as roundScore>
                         <div class="am-u-sm-12">
                             <li class="tpl-left-nav-item">
+
                                 <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
                                     <label style="font-size: 1.7rem;color: #007431">第${roundScore_index+1}轮</label>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right" style="margin-top: 0.1rem"></i>
                                 </a>
-                                <ul class="tpl-left-nav-sub-menu">
-                                    <div>
-                                        <#list seminarList as seminar>
-                                            <#if seminar.getRound_id()==seminar.getRound_id()>
-                                                <#list seminarScoreList as seminarScore>
-
-                                                    <#if seminarScore.getKlass_seminar_id()==seminar.getId()>
-
+                                <#list seminarList as seminar>
+                                    <#if seminar.getRound_id()==seminar.getRound_id()>
+                                        <#list seminarScoreList as seminarScore>
+                                            <#if seminarScore.getKlass_seminar_id()==seminar.getId()>
+                                                <ul class="tpl-left-nav-sub-menu">
+                                                    <div>
                                                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
                                                             <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminar_name()}</span>
                                                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
@@ -73,13 +72,15 @@
                                                             <span class="myLabel">提问:</span><span class="myScore">${seminarScore.getQuestion_score()}</span><br>
                                                             <span class="myLabel">书面报告:</span><span class="myScore">${seminarScore.getReport_score()}</span><br>
                                                             <span class="myLabel">本次总成绩:</span><span class="myScore">${seminarScore.getTotal_score()}</span><br>
-                                                            <!--span class="myLabel">本轮总成绩:</span><span class="myScore"></span-->
+                                                            <span class="myLabel">本轮总成绩:</span><span class="myScore">${roundScore.getTotal_score()}</span>
                                                         </div>
-                                                    </#if>
-                                                </#list>
+                                                    </div>
+                                                </ul>
                                             </#if>
                                         </#list>
-                                    </div>
+                                    </#if>
+                                </#list>
+                            </li>
                         </div>
                     </#list>
             </div>
