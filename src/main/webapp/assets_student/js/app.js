@@ -47,20 +47,18 @@ $('.tpl-header-nav-hover-ico').on('click', function() {
     $('.tpl-content-wrapper').toggleClass('tpl-content-wrapper-hover');
 })
 
+function doPost(to,p) {
+    var myForm = document.createElement("form");
+    myForm.method = "post";
+    myForm.action = to;
+    for (var i in p) {
+        var myInput = document.createElement("input");
+        myInput.setAttribute("name", i); // 为input对象设置name
+        myInput.setAttribute("value", p[i]); // 为input对象设置value
+        myForm.appendChild(myInput);
+    }
 
-//post方法
-        function doPost(to,p) {
-            var myForm = document.createElement("form");
-            myForm.method = "post";
-            myForm.action = to;
-            for (var i in p) {
-                var myInput = document.createElement("input");
-                myInput.setAttribute("name", i); // 为input对象设置name
-                myInput.setAttribute("value", p[i]); // 为input对象设置value
-                myForm.appendChild(myInput);
-            }
-
-            document.body.appendChild(myForm);
-            myForm.submit();
-            document.body.removeChild(myForm); // 提交后移除创建的form
-        }
+    document.body.appendChild(myForm);
+    myForm.submit();
+    document.body.removeChild(myForm); // 提交后移除创建的form
+}

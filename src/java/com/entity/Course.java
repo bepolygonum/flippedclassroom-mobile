@@ -3,27 +3,14 @@ package com.entity;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+/**
+ * @author KEKE
+ */
+@SuppressWarnings({"ALL", "AlibabaLowerCamelCaseVariableNaming"})
 public class Course {
     private int id;
-    private int teacher_id;
-    private String course_name;
-    private String introduction;
-    private int presentation_percentage;
-    private int question_percentage;
-    private int report_percentage;
-    private int team_main_course_id;
-    private int seminar_main_course_id;
-
-
-    private Date startTime;
-    private String team_start_time;
-    private SimpleDateFormat startSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-    private Date endTime;
-    private String team_end_time;
-    private SimpleDateFormat endSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-
+    private int teacherId;
+    private String courseName;
 
     public int getId() {
         return id;
@@ -33,20 +20,20 @@ public class Course {
         this.id = id;
     }
 
-    public int getTeacher_id() {
-        return teacher_id;
+    public int getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacher_id(int teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public String getCourse_name() {
-        return course_name;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name = course_name;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getIntroduction() {
@@ -57,96 +44,99 @@ public class Course {
         this.introduction = introduction;
     }
 
-    public int getPresentation_percentage() {
-        return presentation_percentage;
+    public int getPresentationPercentage() {
+        return presentationPercentage;
     }
 
-    public void setPresentation_percentage(int presentation_percentage) {
-        this.presentation_percentage = presentation_percentage;
+    public void setPresentationPercentage(int presentationPercentage) {
+        this.presentationPercentage = presentationPercentage;
     }
 
-    public int getQuestion_percentage() {
-        return question_percentage;
+    public int getQuestionPercentage() {
+        return questionPercentage;
     }
 
-    public void setQuestion_percentage(int question_percentage) {
-        this.question_percentage = question_percentage;
+    public void setQuestionPercentage(int questionPercentage) {
+        this.questionPercentage = questionPercentage;
     }
 
-    public int getReport_percentage() {
-        return report_percentage;
+    public int getReportPercentage() {
+        return reportPercentage;
     }
 
-    public void setReport_percentage(int report_percentage) {
-        this.report_percentage = report_percentage;
+    public void setReportPercentage(int reportPercentage) {
+        this.reportPercentage = reportPercentage;
     }
 
-    public int getTeam_main_course_id() {
-        return team_main_course_id;
+    public int getTeamMainCourseId() {
+        return teamMainCourseId;
     }
 
-    public void setTeam_main_course_id(int team_main_course_id) {
-        this.team_main_course_id = team_main_course_id;
+    public void setTeamMainCourseId(int teamMainCourseId) {
+        this.teamMainCourseId = teamMainCourseId;
     }
 
-    public int getSeminar_main_course_id() {
-        return seminar_main_course_id;
+    public int getSeminarMainCourseId() {
+        return seminarMainCourseId;
     }
 
-    public void setSeminar_main_course_id(int seminar_main_course_id) {
-        this.seminar_main_course_id = seminar_main_course_id;
+    public void setSeminarMainCourseId(int seminarMainCourseId) {
+        this.seminarMainCourseId = seminarMainCourseId;
     }
 
     public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-        String time = startSdf.format(startTime);
-        setTeam_start_time(time);
+    public String getTeamStartTime() {
+        return teamStartTime;
     }
 
-    public String getTeam_start_time() {
-        return team_start_time;
-    }
-
-    public void setTeam_start_time(String team_start_time) {
-        this.team_start_time = team_start_time;
-    }
-
-    public SimpleDateFormat getStartSdf() {
-        return startSdf;
-    }
-
-    public void setStartSdf(SimpleDateFormat startSdf) {
-        this.startSdf = startSdf;
+    public void setTeamStartTime(String teamStartTime) {
+        this.teamStartTime = teamStartTime;
     }
 
     public Date getEndTime() {
         return endTime;
     }
 
+    public String getTeamEndTime() {
+        return teamEndTime;
+    }
+
+    public void setTeamEndTime(String teamEndTime) {
+        this.teamEndTime = teamEndTime;
+    }
+
+    private String introduction;
+    private int presentationPercentage;
+    private int questionPercentage;
+    private int reportPercentage;
+    private int teamMainCourseId;
+    private int seminarMainCourseId;
+
+    private Date startTime;
+    private String teamStartTime;
+
+    private Date endTime;
+    private String teamEndTime;
+
+
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+
+        SimpleDateFormat startSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = startSdf.format(startTime);
+        setTeamStartTime(time);
+    }
+
+
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+        SimpleDateFormat endSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = endSdf.format(endTime);
-        setTeam_end_time(time);
+        setTeamEndTime(time);
     }
-    public String getTeam_end_time() {
-        return team_end_time;
-    }
-
-    public void setTeam_end_time(String team_end_time) {
-        this.team_end_time = team_end_time;
-    }
-
-    public SimpleDateFormat getEndSdf() {
-        return endSdf;
-    }
-
-    public void setEndSdf(SimpleDateFormat endSdf) {
-        this.endSdf = endSdf;
-    }
-
 
 }

@@ -2,11 +2,14 @@ package com.entity;
 
 import java.sql.Timestamp;
 
+/**
+ * @author KEKE
+ */
 public class KlassSeminar {
     private int id;
-    private int klass_id;
-    private int seminar_id;
-    private Timestamp report_ddl;
+    private int klassId;
+    private int seminarId;
+    private Timestamp reportDdl;
     private int status;
 
     public int getId() {
@@ -17,28 +20,28 @@ public class KlassSeminar {
         this.id = id;
     }
 
-    public int getKlass_id() {
-        return klass_id;
+    public int getKlassId() {
+        return klassId;
     }
 
-    public void setKlass_id(int klass_id) {
-        this.klass_id = klass_id;
+    public void setKlassId(int klassId) {
+        this.klassId = klassId;
     }
 
-    public int getSeminar_id() {
-        return seminar_id;
+    public int getSeminarId() {
+        return seminarId;
     }
 
-    public void setSeminar_id(int seminar_id) {
-        this.seminar_id = seminar_id;
+    public void setSeminarId(int seminarId) {
+        this.seminarId = seminarId;
     }
 
-    public Timestamp getReport_ddl() {
-        return report_ddl;
+    public Timestamp getReportDdl() {
+        return reportDdl;
     }
 
-    public void setReport_ddl(Timestamp report_ddl) {
-        this.report_ddl = report_ddl;
+    public void setReportDdl(Timestamp reportDdl) {
+        this.reportDdl = reportDdl;
     }
 
     public int getStatus() {
@@ -48,4 +51,6 @@ public class KlassSeminar {
     public void setStatus(int status) {
         this.status = status;
     }
+
+
 }

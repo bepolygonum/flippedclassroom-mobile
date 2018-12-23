@@ -1,9 +1,12 @@
 package com.entity;
 
+/**
+ * @author KEKE
+ */
 public class CourseMemberLimitStrategy {
     private int id;
-    private int course_id;
-    private int min_member;
+    private int courseId;
+    private int minMember;
 
     public int getId() {
         return id;
@@ -13,29 +16,29 @@ public class CourseMemberLimitStrategy {
         this.id = id;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    public int getMin_member() {
-        return min_member;
+    public int getMinMember() {
+        return minMember;
     }
 
-    public void setMin_member(int min_member) {
-        this.min_member = min_member;
+    public void setMinMember(int minMember) {
+        this.minMember = minMember;
     }
 
-    public int getMax_member() {
-        return max_member;
+    public int getMaxMember() {
+        return maxMember;
     }
 
-    public void setMax_member(int max_member) {
-        this.max_member = max_member;
+    public void setMaxMember(int max_Member) {
+        this.maxMember = max_Member;
     }
 
-    private int max_member;
+    private int maxMember;
 }

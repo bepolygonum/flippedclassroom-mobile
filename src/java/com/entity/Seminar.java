@@ -2,6 +2,9 @@ package com.entity;
 
 import java.sql.Timestamp;
 
+/**
+ * @author KEKE
+ */
 public class Seminar {
     private int id;
     private int course_id;

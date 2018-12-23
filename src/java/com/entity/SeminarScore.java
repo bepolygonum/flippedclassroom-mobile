@@ -1,5 +1,8 @@
 package com.entity;
 
+/**
+ * @author KEKE
+ */
 public class SeminarScore {
     private int klass_seminar_id;
     private int team_id;

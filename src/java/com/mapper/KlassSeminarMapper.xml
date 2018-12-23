@@ -29,5 +29,12 @@
     <select id="getKlassSeminarIDByKlassId" resultType="Integer">
         select seminar_id from standard_seminar_system.klass_seminar where klass_id=#{0}
     </select>
+    <select id="getKlassSeminarBySeminarID"  resultType="com.entity.KlassSeminar">
+        SELECT * FROM  standard_seminar_system.klass_seminar
+        WHERE seminar_id in
+        <foreach  collection="list" item="seminarIds" open="(" separator="," close=")">
+            #{seminarIds}
+        </foreach>
+    </select>
 
 </mapper>

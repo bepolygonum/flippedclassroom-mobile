@@ -57,7 +57,7 @@
 
                 <div class="am-u-sm-12">
                     <li class="tpl-left-nav-item"  >
-                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 100%;margin-left: -2rem">
                             <label class="courseName">${course.getCourse_name()}</label><span style="margin-left: 1rem">${klass.getGrade()}-(${klass.getKlass_serial()})</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right" style="margin-top: 0.1rem"></i>
                         </a>
@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li class="tpl-left-nav-item">
-                                <a href="score.html">
+                                <a href="javascript:doPost('/student/courseTeam', {'course_id':'${course.getId()}','klass_id':'${klass.getId()}','name':'${student.getStudent_name()}','id':'${student.getId()}'})">
                                     <span>我的组队</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>

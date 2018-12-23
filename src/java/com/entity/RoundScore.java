@@ -1,5 +1,8 @@
 package com.entity;
 
+/**
+ * @author KEKE
+ */
 public class RoundScore {
     private int round_id;
     private int team_id;

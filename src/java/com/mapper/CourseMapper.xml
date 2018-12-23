@@ -22,5 +22,10 @@
     <select id="getCourseByCourseID"  resultType="com.entity.Course">
         SELECT * FROM  standard_seminar_system.course WHERE id=#{0}
     </select>
-
+    <select id="getCourseBySeminarMainCourseID"  resultType="com.entity.Course">
+        SELECT *  FROM  standard_seminar_system.course WHERE seminar_main_course_id=#{0}
+    </select>
+    <select id="getCourseByTeamMainCourseID"  resultType="com.entity.Course">
+        SELECT *  FROM  standard_seminar_system.course WHERE team_main_course_id=#{0}
+    </select>
 </mapper>

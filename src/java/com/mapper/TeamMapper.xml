@@ -6,5 +6,7 @@
     <select id="getTeamByCourseID"  resultType="com.entity.Team">
         SELECT * FROM  standard_seminar_system.team WHERE course_id=#{courseId}
     </select>
-
+    <select id="getTeamById"  resultType="com.entity.Team">
+        SELECT * FROM  standard_seminar_system.team WHERE id=#{0}
+    </select>
 </mapper>

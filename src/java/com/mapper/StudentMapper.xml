@@ -16,4 +16,8 @@
             #{studentIds}
         </foreach>
     </select>
+
+    <select id="getStudentByID"  resultType="com.entity.Student">
+        SELECT * FROM  standard_seminar_system.student WHERE id = #{0}
+    </select>
 </mapper>

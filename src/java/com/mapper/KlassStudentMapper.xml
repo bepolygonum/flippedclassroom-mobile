@@ -6,5 +6,13 @@
     <select id="getKlassStudentByCourseID"  resultType="com.entity.KlassStudent">
         SELECT * FROM  standard_seminar_system.klass_student WHERE course_id=#{courseId}
     </select>
-
+    <select id="getKlassStudentByStudentIdAndKlassId"  resultType="com.entity.KlassStudent">
+        SELECT * FROM  standard_seminar_system.klass_student WHERE student_id=#{0} and klass_id=#{1}
+    </select>
+    <select id="getKlassStudentByTeamID"  resultType="com.entity.KlassStudent">
+        SELECT * FROM  standard_seminar_system.klass_student WHERE team_id=#{0} and course_id=#{1}
+    </select>
+    <select id="getKlassStudentWithNoTeam"  resultType="com.entity.KlassStudent">
+        SELECT * FROM  standard_seminar_system.klass_student WHERE team_id is null and course_id=#{0}
+    </select>
 </mapper>

@@ -10,4 +10,5 @@ public interface StudentDao {
     Student getStudentByAccount(String account, String password);
     List<Student> getStudentByStudentID(List<Integer> studentIds);
     int getTeamIdByStudentId(int id,int course_id);
+    Student getStudentByID(int studentId);
 }

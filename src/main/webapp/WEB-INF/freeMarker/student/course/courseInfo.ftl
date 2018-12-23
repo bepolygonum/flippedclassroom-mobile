@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="../../../assets_student/i/favicon.png">
+    <link rel="icon" type="image/png" href="../../../../assets_student/i/favicon.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="../../../assets_student/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../../../assets/css/admin.css">
-    <link rel="stylesheet" href="../../../assets_student/css/app.css">
-    <script src="../../../assets_student/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="../../../../assets_student/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../../assets_student/css/app.css">
+    <script src="../../../../assets_student/js/echarts.min.js"></script>
 </head>
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
@@ -104,9 +104,9 @@
                 </div>
             </div>
         </div>
-        <script src="../../../assets_student/js/jquery.min.js"></script>
+        <script src="../../../../assets_student/js/jquery.min.js"></script>
         <script src=../../../assets_student/js/amazeui.min.js"></script>
-        <script src="../../../assets_student/js/app.js"></script>
+        <script src="../../../../assets_student/js/app.js"></script>
 </body>
 
 </html>

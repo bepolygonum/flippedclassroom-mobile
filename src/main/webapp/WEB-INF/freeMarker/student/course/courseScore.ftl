@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="../../../assets_student/i/favicon.png">
+    <link rel="icon" type="image/png" href="../../../../assets_student/i/favicon.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="../../../assets_student/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../../../assets_student/css/admin.css">
-    <link rel="stylesheet" href="../../../assets_student/css/app.css">
-    <script src="../../../assets_student/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="../../../../assets_student/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../assets_student/css/admin.css">
+    <link rel="stylesheet" href="../../../../assets_student/css/app.css">
+    <script src="../../../../assets_student/js/echarts.min.js"></script>
 </head>
 
 <body data-type="index">
@@ -24,7 +24,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}-${klass_id} </h3>
+        <h3>${course.getCourse_name()}-${klass.getKlass_serial()} </h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
@@ -49,21 +49,22 @@
     <div class="tpl-portlet-components">
         <div class="tpl-block">
             <div class="am-g">
+                <#if roundScoreList?exists>
                     <#list roundScoreList as roundScore>
                         <div class="am-u-sm-12">
                             <li class="tpl-left-nav-item">
-
-                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
+                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 100%;margin-left: -2rem">
                                     <label style="font-size: 1.7rem;color: #007431">第${roundScore_index+1}轮</label>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right" style="margin-top: 0.1rem"></i>
                                 </a>
+                                <#if seminarList?exists>
                                 <#list seminarList as seminar>
-                                    <#if seminar.getRound_id()==seminar.getRound_id()>
+                                    <#if seminar.getRound_id()==seminar.getRound_id() && seminarScoreList?exists>
                                         <#list seminarScoreList as seminarScore>
                                             <#if seminarScore.getKlass_seminar_id()==seminar.getId()>
                                                 <ul class="tpl-left-nav-sub-menu">
-                                                    <div>
-                                                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 120%;margin-left: -2rem">
+                                                    <div>s
+                                                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 100%;margin-left: -2rem">
                                                             <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminar_name()}</span>
                                                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                                         </a>
@@ -80,15 +81,17 @@
                                         </#list>
                                     </#if>
                                 </#list>
+                                </#if>
                             </li>
                         </div>
                     </#list>
+                </#if>
             </div>
         </div>
     </div>
 </div>
-<script src="../../../assets_student/js/jquery.min.js"></script>
-<script src="../../../assets_student/js/amazeui.min.js"></script>
+<script src="../../../../assets_student/js/jquery.min.js"></script>
+<script src="../../../../assets_student/js/amazeui.min.js"></script>
 <script src="Z../../../assets_student/js/app.js"></script>
 </body>
 

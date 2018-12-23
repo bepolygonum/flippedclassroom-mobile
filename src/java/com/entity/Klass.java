@@ -1,12 +1,14 @@
 package com.entity;
 
+/**
+ * @author KEKE
+ */
 public class Klass {
     private int id;
-    private int course_id;
+    private int courseId;
     private int grade;
-    private int klass_serial;
-    private String klass_time;
-    private String klass_location;
+    private int klassSerial;
+    private String klassTime;
 
     public int getId() {
         return id;
@@ -16,12 +18,12 @@ public class Klass {
         this.id = id;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public int getGrade() {
@@ -32,27 +34,30 @@ public class Klass {
         this.grade = grade;
     }
 
-    public int getKlass_serial() {
-        return klass_serial;
+    public int getKlassSerial() {
+        return klassSerial;
     }
 
-    public void setKlass_serial(int klass_serial) {
-        this.klass_serial = klass_serial;
+    public void setKlassSerial(int klassSerial) {
+        this.klassSerial = klassSerial;
     }
 
-    public String getKlass_time() {
-        return klass_time;
+    public String getKlassTime() {
+        return klassTime;
     }
 
-    public void setKlass_time(String klass_time) {
-        this.klass_time = klass_time;
+    public void setKlassTime(String klassTime) {
+        this.klassTime = klassTime;
     }
 
-    public String getKlass_location() {
-        return klass_location;
+    public String getKlassLocation() {
+        return klassLocation;
     }
 
-    public void setKlass_location(String klass_location) {
-        this.klass_location = klass_location;
+    public void setKlassLocation(String klassLocation) {
+        this.klassLocation = klassLocation;
     }
+
+    private String klassLocation;
+
 }

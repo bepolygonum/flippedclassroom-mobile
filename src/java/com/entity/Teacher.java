@@ -1,5 +1,8 @@
 package com.entity;
 
+/**
+ * @author KEKE
+ */
 public class Teacher {
     private int id;
     private String account;

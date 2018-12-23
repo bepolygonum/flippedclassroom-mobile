@@ -10,5 +10,5 @@ public interface TeacherDao {
     Teacher getTeacherByAccount(String account, String password);
     List<Teacher> getTeacherByInfo(String info);
     List<Teacher> getTeachersByTeacherID(List<Integer> teacherIds);
-
+    Teacher getTeacherByTeacherID(int teacherId);
 }

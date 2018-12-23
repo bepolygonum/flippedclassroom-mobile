@@ -4,6 +4,9 @@ import com.entity.Klass;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+/**
+ * @author KEKE
+ */
 @Repository
 public interface KlassDao {
     List<Integer> getKlassIDByCourseID(int courseId);
