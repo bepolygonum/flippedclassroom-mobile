@@ -22,7 +22,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}</h3>
+        <h3>${course.getCourseName()}</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
 
@@ -32,7 +32,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudent_name()}</span>
+                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
@@ -60,27 +60,27 @@
                     <div >
                         <lable class="mylabel">成绩计算规则：</lable>
                         <div class="myDiv">
-                            <label class="myLabel">课堂展示${course.getPresentation_percentage()}%</label><br>
-                            <label class="myLabel">课堂提问${course.getQuestion_percentage()}%</label><br>
-                            <label class="myLabel">书面报告${course.getReport_percentage()}%</label>
+                            <label class="myLabel">课堂展示${course.getPresentationPercentage()}%</label><br>
+                            <label class="myLabel">课堂提问${course.getQuestionPercentage()}%</label><br>
+                            <label class="myLabel">书面报告${course.getReportPercentage()}%</label>
                         </div>
                     </div>
                     <div>
                         <lable class="mylabel">小组人数：</lable>
                         <div class="myDiv">
-                            <label class="myLabel">${courseMemberLimitStrategy.getMin_member()}~${courseMemberLimitStrategy.getMax_member()}</label>
+                            <label class="myLabel">${courseMemberLimitStrategy.getMinMember()}~${courseMemberLimitStrategy.getMaxMember()}</label>
                         </div>
                     </div>
                     <div>
                         <lable class="mylabel">组队开始时间：</lable>
                         <div class="myDiv">
-                            <label class="myLabel">${course.getTeam_start_time()}</label>
+                            <label class="myLabel">${course.getTeamStartTime()}</label>
                         </div>
                     </div>
                     <div >
                         <lable class="mylabel">组队截止时间：</lable>
                         <div class="myDiv">
-                            <label class="myLabel">${course.getTeam_end_time()}</label>
+                            <label class="myLabel">${course.getTeamEndTime()}</label>
                         </div>
                     </div>
                     <div >

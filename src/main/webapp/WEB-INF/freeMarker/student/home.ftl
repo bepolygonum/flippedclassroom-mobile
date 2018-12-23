@@ -31,7 +31,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudent_name()}</span>
+                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
@@ -49,7 +49,7 @@
         <div class="tpl-block">
             <div class="am-g">
                 <div class="am-u-sm-12"  style="text-align: right">
-                    <label>${student.getStudent_name()}</label>
+                    <label>${student.getStudentName()}</label>
 
                     <div class="am-u-sm-12">
                         <label style="text-align: right">${student.getAccount()}</label>
@@ -63,7 +63,7 @@
             <div class="am-g">
                 <div class="am-u-sm-12">
                     <li class="tpl-left-nav-item">
-                        <a href="javascript:doPost('/student/courseManage', {'name':'${student.getStudent_name()}','id':'${student.getId()}'})">
+                        <a href="javascript:doPost('/student/courseManage', {'name':'${student.getStudentName()}','id':'${student.getId()}'})">
                             <img src="../../../assets_student/img/books.svg" style="margin-top:-0.4rem;width: 2rem">
                             <span>我的课程</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>

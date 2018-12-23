@@ -38,7 +38,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}</h3>
+        <h3>${course.getCourseName()}</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
 
@@ -48,7 +48,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudent_name()}</span>
+                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
@@ -66,7 +66,7 @@
         <div class="tpl-block">
             <div class="am-g">
                 <div class="am-u-sm-12">
-                    <div style="text-align: center"><span class="myLabel">${myteam.getTeam_name()}</span>
+                    <div style="text-align: center"><span class="myLabel">${myteam.getTeamName()}</span>
                         <a onclick="inva()" style="margin-left: 10%">
                             <#if myteam.getStatus()==0>不合法
                             <#else>合法</#if>
@@ -77,14 +77,14 @@
                         <tr>
                             <td>组长</td>
                             <td>${student.getAccount()}</td>
-                            <td>${student.getStudent_name()}</td>
+                            <td>${student.getStudentName()}</td>
                         </tr>
                         <#if memberTeam?exists>
                         <#list memberTeam as member>
                         <tr>
                             <td>组员</td>
                             <td>${member.getAccount()}</td>
-                            <td><a onclick="conf()">${member.getStudent_name()}</a></td>
+                            <td><a onclick="conf()">${member.getStudentName()}</a></td>
                         </tr>
                         </#list>
                         </#if>
@@ -107,7 +107,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="radio1" value="${noteam.getAccount()}" class="data-am-ucheck"  style="margin-left: 1rem"></td>
                                                     <td>${noteam.getAccount()}</td>
-                                                    <td>${noteam.getStudent_name()}</td>
+                                                    <td>${noteam.getStudentName()}</td>
                                                 </tr>
                                         </#list>
                                     </table>

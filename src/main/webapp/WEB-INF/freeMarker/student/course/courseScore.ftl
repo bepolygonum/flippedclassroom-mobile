@@ -24,7 +24,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}-${klass.getKlass_serial()} </h3>
+        <h3>${course.getCourseName()}-${klass.getKlassSerial()} </h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
@@ -33,7 +33,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudent_name()}</span>
+                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
@@ -59,21 +59,21 @@
                                 </a>
                                 <#if seminarList?exists>
                                 <#list seminarList as seminar>
-                                    <#if seminar.getRound_id()==seminar.getRound_id() && seminarScoreList?exists>
+                                    <#if seminar.getRoundId()==seminar.getRoundId() && seminarScoreList?exists>
                                         <#list seminarScoreList as seminarScore>
-                                            <#if seminarScore.getKlass_seminar_id()==seminar.getId()>
+                                            <#if seminarScore.getKlassSeminarId()==seminar.getId()>
                                                 <ul class="tpl-left-nav-sub-menu">
                                                     <div>s
                                                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list" style="width: 100%;margin-left: -2rem">
-                                                            <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminar_name()}</span>
+                                                            <span style="margin-left: 2rem;color: #3bb4f2">${seminar.getSeminarName()}</span>
                                                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                                         </a>
                                                         <div class="tpl-left-nav-sub-menu">
-                                                            <span class="myLabel">展示:</span><span class="myScore">${seminarScore.getPresentation_score()}</span><br>
-                                                            <span class="myLabel">提问:</span><span class="myScore">${seminarScore.getQuestion_score()}</span><br>
-                                                            <span class="myLabel">书面报告:</span><span class="myScore">${seminarScore.getReport_score()}</span><br>
-                                                            <span class="myLabel">本次总成绩:</span><span class="myScore">${seminarScore.getTotal_score()}</span><br>
-                                                            <span class="myLabel">本轮总成绩:</span><span class="myScore">${roundScore.getTotal_score()}</span>
+                                                            <span class="myLabel">展示:</span><span class="myScore">${seminarScore.getPresentationScore()}</span><br>
+                                                            <span class="myLabel">提问:</span><span class="myScore">${seminarScore.getQuestionScore()}</span><br>
+                                                            <span class="myLabel">书面报告:</span><span class="myScore">${seminarScore.getReportScore()}</span><br>
+                                                            <span class="myLabel">本次总成绩:</span><span class="myScore">${seminarScore.getTotalScore()}</span><br>
+                                                            <span class="myLabel">本轮总成绩:</span><span class="myScore">${roundScore.getTotalScore()}</span>
                                                         </div>
                                                     </div>
                                                 </ul>

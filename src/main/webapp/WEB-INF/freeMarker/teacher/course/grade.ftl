@@ -67,36 +67,36 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
-                            <span>第${item.getRound_id()}轮讨论课</span>
+                            <span>第${item.getRoundId()}轮讨论课</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                         </a>
 
                         <ul class="tpl-left-nav-sub-menu">
                             <#if teamList?exists>
                                 <#list teamList as team>
-                                    <#if team.getId()==item.getTeam_id()>
+                                    <#if team.getId()==item.getTeamId()>
                                         <#if klassList?exists>
                                             <#list klassList as klass>
-                                                <#if klass.getId()==team.getKlass_id()>
+                                                <#if klass.getId()==team.getKlassId()>
                             <li class="tpl-left-nav-item">
                                 <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                                    <span>${klass.getKlass_serial()}-${team.getTeam_serial()}</span><!-- 1-1 -->
-                                    <span style="margin-left: 100px">${item.getTotal_score()}</span>
+                                    <span>${klass.getKlassSerial()}-${team.getTeamSerial()}</span><!-- 1-1 -->
+                                    <span style="margin-left: 100px">${item.getTotalScore()}</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>
                                 <ul class="tpl-left-nav-sub-menu">
                                     <li>
                                         <#if seminarScoreList?exists>
                                             <#list seminarScoreList as seminarScore>
-                                                <#if seminarScore.getTeam_id()==team.getId()>
+                                                <#if seminarScore.getTeamId()==team.getId()>
                                                     <#if klassSeminarList?exists>
                                                         <#list klassSeminarList as klassSeminar>
-                                                            <#if klassSeminar.getId()==seminarScore.getKlass_seminar_id()>
+                                                            <#if klassSeminar.getId()==seminarScore.getKlassSeminarId()>
                                                                 <#if seminarList?exists>
                                                                     <#list seminarList as seminar>
-                                                                        <#if seminar.getId()==klassSeminar.getSeminar_id()>
-                                                                            <#if seminar.getRound_id()==item.getRound_id()>
-                                        <span class="table-title"style="margin-left: 25%">${seminar.getSeminar_name()}</span>
+                                                                        <#if seminar.getId()==klassSeminar.getSeminarId()>
+                                                                            <#if seminar.getRoundId()==item.getRoundId()>
+                                        <span class="table-title"style="margin-left: 25%">${seminar.getSeminarName()}</span>
                                         <table class="am-table am-table-striped am-table-hover table-main">
                                             <thead>
                                             <tr>
@@ -108,9 +108,9 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>${seminarScore.getPresentation_score()}</td>
-                                                <td>${seminarScore.getQuestion_score()}</td>
-                                                <td>${seminarScore.getReport_score()}</td>
+                                                <td>${seminarScore.getPresentationScore()}</td>
+                                                <td>${seminarScore.getQuestionScore()}</td>
+                                                <td>${seminarScore.getReportScore()}</td>
                                                 <td>
                                                     <div class="am-btn-toolbar">
                                                         <div class="am-btn-group am-btn-group-xs">

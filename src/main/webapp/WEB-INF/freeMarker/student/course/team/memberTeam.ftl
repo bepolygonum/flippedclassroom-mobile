@@ -34,7 +34,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}</h3>
+        <h3>${course.getCourseName()}</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
 
@@ -44,7 +44,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudent_name()}</span>
+                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
@@ -64,20 +64,24 @@
 
             <div class="am-g">
                 <div class="am-u-sm-12">
-                    <div style="text-align: center"><span class="myLabel">${myteam.getTeam_name()}</span>
-                        <a  style="margin-left: 10%">${myteam.getStatus()}</a>
+                    <div style="text-align: center"><span class="myLabel">${myteam.getTeamName()}</span>
+                        <a  style="margin-left: 10%">
+                        <#if myteam.getStatus()==0 > 不合法
+                        <#else >合法
+                        </#if>
+                        </a>
                     </div>
 
                     <table class="am-table am-table-striped am-table-hover table-main">
                         <#list memberTeam as member>
                         <tr>
-                            <#if member.getId()==myteam.getLeader_id()>
+                            <#if member.getId()==myteam.getLeaderId()>
                                 <td>组长</td>
                             <#else >
                                 <td>组员</td>
                             </#if>
                             <td>${member.getAccount()}</td>
-                            <td>${member.getStudent_name()}</td>
+                            <td>${member.getStudentName()}</td>
                         </tr>
                         </#list>
                     </table>
