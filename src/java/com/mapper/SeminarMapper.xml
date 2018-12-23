@@ -3,7 +3,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SeminarDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="getSeminarByRoundID" resultType="com.entity.Seminar">
+    <resultMap type="com.entity.Seminar" id="seminarResultMap">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+        <result property="courseId" column="course_id" />
+        <result property="roundId" column="round_id" />
+        <result property="seminarName" column="seminar_name" />
+        <result property="introduction" column="introduction" />
+        <result property="maxTeam" column="max_team" />
+        <result property="isVisible" column="is_visible" />
+        <result property="seminarSerial" column="seminar_serial" />
+        <result property="enrollStartTime" column="enroll_start_time" />
+        <result property="enrollEndTime" column="enroll_end_time" />
+
+
+    </resultMap>
+    <select id="getSeminarByRoundID" resultMap="seminarResultMap">
         SELECT * FROM  standard_seminar_system.seminar
         WHERE course_id=#{courseId} and round_id in
         <foreach collection="roundIds"  item="item" open="(" separator="," close=")">
@@ -11,7 +30,7 @@
         </foreach>
     </select>
 
-    <select id="getSeminarByCourseID" resultType="com.entity.Seminar">
+    <select id="getSeminarByCourseID" resultMap="seminarResultMap">
         SELECT  * FROM  standard_seminar_system.seminar WHERE course_id=#{0}
     </select>
 

@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author KEKE
+ */
 @Controller
 
 @RequestMapping(value = "/teacher")
@@ -47,20 +50,20 @@ public class TeacherController {
     public String findAllGrade(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
+        int courseid=Integer.parseInt(courseId);
 
-        List<RoundScore> roundScoreList=roundService.getRoundScoreByCourseID(course_id);
+        List<RoundScore> roundScoreList=roundService.getRoundScoreByCourseID(courseid);
+        //所有rounds的id集合
+        List<Integer> roundIds=roundScoreList.stream().map(RoundScore::getRoundId).collect(Collectors.toList());
+        List<Seminar> seminarList=roundService.getSeminarByRoundID(roundIds,courseid);
+        //某课程下所有seminar的id
+        List<Integer> seminarIds=seminarList.stream().map(Seminar::getId).collect(Collectors.toList());
+        List<SeminarScore> seminarScoreList=klassService.getSeminarScoreByCourseSeminarID(courseid,seminarIds);
+        List<KlassSeminar> klassSeminarList=klassService.getKlassSeminarByCourseSeminarID(courseid,seminarIds);
 
-        List<Integer> roundIds=roundScoreList.stream().map(RoundScore::getRound_id).collect(Collectors.toList());//所有rounds的id集合
-        List<Seminar> seminarList=roundService.getSeminarByRoundID(roundIds,course_id);
+        List<Team> teamList=teamService.getTeamByCourseID(courseid);
 
-        List<Integer> seminarIds=seminarList.stream().map(Seminar::getId).collect(Collectors.toList());//某课程下所有seminar的id
-        List<SeminarScore> seminarScoreList=klassService.getSeminarScoreByCourseSeminarID(course_id,seminarIds);
-        List<KlassSeminar> klassSeminarList=klassService.getKlassSeminarByCourseSeminarID(course_id,seminarIds);
-
-        List<Team> teamList=teamService.getTeamByCourseID(course_id);
-
-        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+        List<Klass> klassList=klassService.getKlassByCourseID(courseid);
 
         model.addAttribute(roundScoreList);
         model.addAttribute(seminarList);
@@ -76,14 +79,14 @@ public class TeacherController {
     public String findAllTeam(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
-        List<KlassStudent> klassStudentList=klassService.getKlassStudentByCourseID(course_id);
-        List<Team> teamList=teamService.getTeamByCourseID(course_id);
+        int courseid=Integer.parseInt(courseId);
+        List<KlassStudent> klassStudentList=klassService.getKlassStudentByCourseID(courseid);
+        List<Team> teamList=teamService.getTeamByCourseID(courseid);
 //某课程下所有学生的id
-        List<Integer> studentIds=klassStudentList.stream().map(KlassStudent::getStudent_id).collect(Collectors.toList());
+        List<Integer> studentIds=klassStudentList.stream().map(KlassStudent::getStudentId).collect(Collectors.toList());
         List<Student> studentList=studentService.getStudentByStudentID(studentIds);
 
-        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+        List<Klass> klassList=klassService.getKlassByCourseID(courseid);
 
         model.addAttribute(teamList);
         model.addAttribute(klassStudentList);
@@ -97,10 +100,10 @@ public class TeacherController {
     public String findCourseInfo(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
-        List<Course> courseList=courseService.getConflictCourseByCourseID(course_id);
-        Course course=courseService.getCourseByCourseID(course_id);
-        CourseMemberLimitStrategy courseMemberLimitStrategy=courseService.getCourseMemberLimitByCourseID(course_id);
+        int courseid=Integer.parseInt(courseId);
+        List<Course> courseList=courseService.getConflictCourseByCourseID(courseid);
+        Course course=courseService.getCourseByCourseID(courseid);
+        CourseMemberLimitStrategy courseMemberLimitStrategy=courseService.getCourseMemberLimitByCourseID(courseid);
 
         List<Integer> teacherIds=courseList.stream().map(Course::getTeacherId).collect(Collectors.toList());
         List<Teacher> teacherList=teacherService.getTeachersByTeacherID(teacherIds);
@@ -114,7 +117,7 @@ public class TeacherController {
     }
 
     @RequestMapping(value = "/course/createCourse")
-    public String CreateCourse(Model model,@RequestParam String id)
+    public String createCourse(Model model,@RequestParam String id)
     {
         int tid=Integer.parseInt(id);
         model.addAttribute("id",tid);
@@ -135,20 +138,20 @@ public class TeacherController {
     public String findAllKlasses(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
-        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+        int courseid=Integer.parseInt(courseId);
+        List<Klass> klassList=klassService.getKlassByCourseID(courseid);
         model.addAttribute(klassList);
-        model.addAttribute("courseId",course_id);
+        model.addAttribute("courseId",courseid);
         model.addAttribute("id",tid);
         return "/teacher/course/klassList";
     }
 
     @RequestMapping(value = "/course/klass/create")
-    public String CreateKlass(Model model,@RequestParam String id,@RequestParam String courseId)
+    public String createKlass(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
-        model.addAttribute("courseId",course_id);
+        int courseid=Integer.parseInt(courseId);
+        model.addAttribute("courseId",courseid);
         model.addAttribute("id",tid);
         return "/teacher/course/klass/create";
 
@@ -158,11 +161,11 @@ public class TeacherController {
     public String findAllSeminar(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
-        Course course=courseService.getCourseByCourseID(course_id);
-        List<Round> roundList=roundService.getRoundByCourseID(course_id);
-        List<Seminar> seminarList=seminarService.getSeminarByCourseID(course_id);
-        List<Klass> klassList=klassService.getKlassByCourseID(course_id);
+        int courseid=Integer.parseInt(courseId);
+        Course course=courseService.getCourseByCourseID(courseid);
+        List<Round> roundList=roundService.getRoundByCourseID(courseid);
+        List<Seminar> seminarList=seminarService.getSeminarByCourseID(courseid);
+        List<Klass> klassList=klassService.getKlassByCourseID(courseid);
 
         List<Integer> seminarIds=seminarList.stream().map(Seminar::getId).collect(Collectors.toList());
         List<KlassSeminar> klassSeminarList=klassService.getKlassSeminarBySeminarID(seminarIds);
@@ -180,10 +183,10 @@ public class TeacherController {
     public String findAllShare(Model model,@RequestParam String id,@RequestParam String courseId)
     {
         int tid=Integer.parseInt(id);
-        int course_id=Integer.parseInt(courseId);
+        int courseid=Integer.parseInt(courseId);
         List<Teacher> teacherList1=new ArrayList<>();
         List<Teacher> teacherList2=new ArrayList<>();
-        Course course=courseService.getCourseByCourseID(course_id);
+        Course course=courseService.getCourseByCourseID(courseid);
         //course为主课程
         int seminarMainCourseId=course.getSeminarMainCourseId();
         int teamMainCourseId=course.getTeamMainCourseId();
@@ -193,9 +196,9 @@ public class TeacherController {
         Course teamMainCourse=new Course();
         if (seminarMainCourseId!=0)
         {
-            if(seminarMainCourseId==course_id)
+            if(seminarMainCourseId==courseid)
             {
-                seminarCourseList=courseService.getCourseBySeminarMainCourseID(course_id);
+                seminarCourseList=courseService.getCourseBySeminarMainCourseID(courseid);
                 List<Integer> teacherIds=seminarCourseList.stream().map(Course::getTeacherId).collect(Collectors.toList());
                 if(!teacherIds.isEmpty()){
                 teacherList1.addAll(teacherService.getTeachersByTeacherID(teacherIds));
@@ -213,9 +216,9 @@ public class TeacherController {
 
         if (teamMainCourseId!=0)
         {
-            if(teamMainCourseId==course_id)
+            if(teamMainCourseId==courseid)
             {
-                teamCourseList=courseService.getCourseByTeamMainCourseID(course_id);
+                teamCourseList=courseService.getCourseByTeamMainCourseID(courseid);
                 List<Integer> teacherIds=teamCourseList.stream().map(Course::getTeacherId).collect(Collectors.toList());
                 if(!teacherIds.isEmpty())
                 {
@@ -232,24 +235,8 @@ public class TeacherController {
             }
         }
 
-        //System.out.print(teacherList);
-
-        //使用hashset去重复，set为重复的集合，可以通过new ArrayList(set)转换成list
-        //HashSet<Teacher> set = new HashSet<>();
-       // for (Teacher teacher : teacherList) {
-          //  set.add(teacher);
-        //}
-       // List<Teacher> teachers=new ArrayList<>(set);
-        //for(Teacher teacher:teacherList)
-        //{
-          //  if(!teachers.contains(teacher))
-            //    teachers.add(teacher);
-        //}
-
-
         System.out.print(seminarCourseList);
         System.out.print(teamCourseList);
-       // System.out.print(teachers);
         model.addAttribute("seminarCourseList",seminarCourseList);
         model.addAttribute("seminarMainCourse",seminarMainCourse);
         model.addAttribute("teamCourseList",teamCourseList);
@@ -259,8 +246,6 @@ public class TeacherController {
         model.addAttribute(course);
         model.addAttribute("id",tid);
         return "/teacher/course/shareList";
-
     }
-
 
 }

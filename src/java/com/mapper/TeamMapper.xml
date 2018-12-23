@@ -3,10 +3,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.TeamDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="getTeamByCourseID"  resultType="com.entity.Team">
+    <resultMap type="com.entity.Team" id="teamResultMap">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+        <result property="klassId" column="klass_id" />
+        <result property="courseId" column="course_id" />
+        <result property="leaderId" column="leader_id" />
+        <result property="teamName" column="team_name" />
+        <result property="teamSerial" column="team_serial" />
+        <result property="status" column="status" />
+
+
+    </resultMap>
+    <select id="getTeamByCourseID"  resultMap="teamResultMap">
         SELECT * FROM  standard_seminar_system.team WHERE course_id=#{courseId}
     </select>
-    <select id="getTeamById"  resultType="com.entity.Team">
+    <select id="getTeamById"  resultMap="teamResultMap">
         SELECT * FROM  standard_seminar_system.team WHERE id=#{0}
     </select>
 </mapper>

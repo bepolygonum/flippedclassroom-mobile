@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author KEKE
+ */
 @Service(value = "StudentService")
 public class StudentServiceImpl {
     @Autowired
@@ -19,8 +22,8 @@ public class StudentServiceImpl {
         return studentDao.getStudentByAccount(account,password);
     }
 
-    public int getTeamIdByStudentId(int id,int course_id) {
-        return  studentDao.getTeamIdByStudentId(id,course_id);
+    public int getTeamIdByStudentId(int id,int courseid) {
+        return  studentDao.getTeamIdByStudentId(id,courseid);
     }
 
     public List<Student> getStudentByStudentID(List<Integer> studentIds)

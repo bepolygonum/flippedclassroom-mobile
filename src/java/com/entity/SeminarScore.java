@@ -4,58 +4,59 @@ package com.entity;
  * @author KEKE
  */
 public class SeminarScore {
-    private int klass_seminar_id;
-    private int team_id;
-    private double total_score;
-    private double presentation_score;
-    private double question_score;
-    private double report_score;
+    private int klassSeminarId;
+    private int teamId;
+    private double totalScore;
+    private double presentationScore;
+    private double questionScore;
+    private double reportScore;
 
-    public int getKlass_seminar_id() {
-        return klass_seminar_id;
+    public int getKlassSeminarId() {
+        return klassSeminarId;
     }
 
-    public void setKlass_seminar_id(int klass_seminar_id) {
-        this.klass_seminar_id = klass_seminar_id;
+    public void setKlassSeminarId(int klassSeminarId) {
+        this.klassSeminarId = klassSeminarId;
     }
 
-    public int getTeam_id() {
-        return team_id;
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setTeam_id(int team_id) {
-        this.team_id = team_id;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
-    public double getTotal_score() {
-        return total_score;
+    public double getTotalScore() {
+        return totalScore;
     }
 
-    public void setTotal_score(double total_score) {
-        this.total_score = total_score;
+    public void setTotalScore(double totalScore) {
+        this.totalScore = totalScore;
     }
 
-    public double getPresentation_score() {
-        return presentation_score;
+    public double getPresentationScore() {
+        return presentationScore;
     }
 
-    public void setPresentation_score(double presentation_score) {
-        this.presentation_score = presentation_score;
+    public void setPresentationScore(double presentationScore) {
+        this.presentationScore = presentationScore;
     }
 
-    public double getQuestion_score() {
-        return question_score;
+    public double getQuestionScore() {
+        return questionScore;
     }
 
-    public void setQuestion_score(double question_score) {
-        this.question_score = question_score;
+    public void setQuestionScore(double questionScore) {
+        this.questionScore = questionScore;
     }
 
-    public double getReport_score() {
-        return report_score;
+    public double getReportScore() {
+        return reportScore;
     }
 
-    public void setReport_score(double report_score) {
-        this.report_score = report_score;
+    public void setReportScore(double reportScore) {
+        this.reportScore = reportScore;
     }
+
 }

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author KEKE
+ */
 @Service(value = "TeamService")
 public class TeamServiceImpl  {
     @Autowired
@@ -19,7 +22,7 @@ public class TeamServiceImpl  {
         return teams;
     }
 
-    public Team getTeamById(int team_id) {
-        return teamDao.getTeamById(team_id);
+    public Team getTeamById(int teamid) {
+        return teamDao.getTeamById(teamid);
     }
 }

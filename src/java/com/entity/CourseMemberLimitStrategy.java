@@ -36,8 +36,8 @@ public class CourseMemberLimitStrategy {
         return maxMember;
     }
 
-    public void setMaxMember(int max_Member) {
-        this.maxMember = max_Member;
+    public void setMaxMember(int maxMember) {
+        this.maxMember = maxMember;
     }
 
     private int maxMember;

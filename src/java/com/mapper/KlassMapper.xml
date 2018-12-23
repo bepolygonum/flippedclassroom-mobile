@@ -3,16 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.KlassDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <resultMap type="com.entity.Klass" id="klassResultMap">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+        <result property="courseId" column="course_id" />
+        <result property="grade" column="grade" />
+        <result property="klassSerial" column="klass_serial" />
+        <result property="klassTime" column="klass_time" />
+        <result property="klassLocation" column="klass_location" />
+
+    </resultMap>
     <select id="getKlassIDByCourseID"  resultType="Integer">
         SELECT id FROM  standard_seminar_system.klass WHERE course_id=#{courseId}
     </select>
     <select id="getKlassIDByStudentID"  resultType="Integer">
         SELECT klass_id FROM  standard_seminar_system.klass_student WHERE student_id=#{0}
     </select>
-    <select id="getKlassByKlassID"  resultType="com.entity.Klass">
+    <select id="getKlassByKlassID"  resultMap="klassResultMap">
         SELECT * FROM  standard_seminar_system.klass WHERE id=#{0}
     </select>
-    <select id="getKlassByCourseID"  resultType="com.entity.Klass">
+    <select id="getKlassByCourseID"  resultMap="klassResultMap">
         SELECT * FROM  standard_seminar_system.klass WHERE course_id=#{courseId}
     </select>
 </mapper>

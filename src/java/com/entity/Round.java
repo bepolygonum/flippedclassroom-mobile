@@ -5,11 +5,10 @@ package com.entity;
  */
 public class Round {
     private int id;
-    private int course_id;
-    private int round_serial;
-    private int presentation_score_method;
-    private int report_score_method;
-    private int question_score_method;
+    private int courseId;
+    private int roundSerial;
+    private int presentationScoreMethod;
+    private int reportScoreMethod;
 
     public int getId() {
         return id;
@@ -19,43 +18,46 @@ public class Round {
         this.id = id;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    public int getRound_serial() {
-        return round_serial;
+    public int getRoundSerial() {
+        return roundSerial;
     }
 
-    public void setRound_serial(int round_serial) {
-        this.round_serial = round_serial;
+    public void setRoundSerial(int roundSerial) {
+        this.roundSerial = roundSerial;
     }
 
-    public int getPresentation_score_method() {
-        return presentation_score_method;
+    public int getPresentationScoreMethod() {
+        return presentationScoreMethod;
     }
 
-    public void setPresentation_score_method(int presentation_score_method) {
-        this.presentation_score_method = presentation_score_method;
+    public void setPresentationScoreMethod(int presentationScoreMethod) {
+        this.presentationScoreMethod = presentationScoreMethod;
     }
 
-    public int getReport_score_method() {
-        return report_score_method;
+    public int getReportScoreMethod() {
+        return reportScoreMethod;
     }
 
-    public void setReport_score_method(int report_score_method) {
-        this.report_score_method = report_score_method;
+    public void setReportScoreMethod(int reportScoreMethod) {
+        this.reportScoreMethod = reportScoreMethod;
     }
 
-    public int getQuestion_score_method() {
-        return question_score_method;
+    public int getQuestionScoreMethod() {
+        return questionScoreMethod;
     }
 
-    public void setQuestion_score_method(int question_score_method) {
-        this.question_score_method = question_score_method;
+    public void setQuestionScoreMethod(int questionScoreMethod) {
+        this.questionScoreMethod = questionScoreMethod;
     }
+
+    private int questionScoreMethod;
+
 }

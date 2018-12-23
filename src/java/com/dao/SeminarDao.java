@@ -6,10 +6,24 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+/**
+ * @author KEKE
+ */
 @Repository
 public interface SeminarDao {
+    /**
+     * get Seminar By RoundID
+     * @param roundIds
+     * @param courseId
+     * @return
+     */
     List<Seminar> getSeminarByRoundID(@Param("roundIds") List<Integer> roundIds ,@Param("courseId") int courseId);
 
-    List<Seminar> getSeminarByCourseID(int course_id);
+    /**
+     * get Seminar By CourseID
+     * @param courseid
+     * @return
+     */
+    List<Seminar> getSeminarByCourseID(int courseid);
 
 }

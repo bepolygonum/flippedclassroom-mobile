@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @author KEKE
+ */
 @Service(value = "KlassService")
 public class KlassServiceImpl {
     @Autowired
@@ -32,7 +35,7 @@ public class KlassServiceImpl {
         List<Integer> klassIds=klassDao.getKlassIDByCourseID(courseId);
         List<Integer> klassSeminarIds=klassSeminarDao.getKlassSeminarIDByKlassIdSeminarID(klassIds,seminarIds);
         List<SeminarScore> seminarScores=seminarScoreDao.getSeminarScoreByKlassSeminarID(klassSeminarIds);
-        System.out.print(seminarScores.get(0).getPresentation_score());
+        System.out.print(seminarScores.get(0).getPresentationScore());
         return  seminarScores;
     }
 
@@ -71,8 +74,8 @@ public class KlassServiceImpl {
     }
 
 
-    public List<KlassStudent> getKlassStudentByTeamID(int team_id, int courseId) {
-        return klassStudentDao.getKlassStudentByTeamID(team_id,courseId);
+    public List<KlassStudent> getKlassStudentByTeamID(int teamid, int courseId) {
+        return klassStudentDao.getKlassStudentByTeamID(teamid,courseId);
     }
 
 

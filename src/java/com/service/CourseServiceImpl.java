@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * @author KEKE
+ */
 @SuppressWarnings("ALL")
 @Service(value = "CourseService")
 public class CourseServiceImpl  {
@@ -54,8 +57,8 @@ public class CourseServiceImpl  {
     }
 
 
-    public Course getCourseByCourseID(int course_id) {
-        return courseDao.getCourseByCourseID(course_id);
+    public Course getCourseByCourseID(int courseid) {
+        return courseDao.getCourseByCourseID(courseid);
     }
 
 

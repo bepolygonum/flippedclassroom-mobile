@@ -7,7 +7,16 @@ public class Student {
     private int id;
     private String account;
     private String password;
-    private  String student_name;
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    private  String studentName;
     private  String email;
 
     public int getId() {
@@ -34,12 +43,12 @@ public class Student {
         this.password = password;
     }
 
-    public String getStudent_name() {
-        return student_name;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setStudent_name(String student_name) {
-        this.student_name = student_name;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public String getEmail() {
@@ -50,13 +59,6 @@ public class Student {
         this.email = email;
     }
 
-    public boolean isIs_active() {
-        return is_active;
-    }
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
-    }
-
-    private boolean is_active;
+    private boolean isActive;
 }

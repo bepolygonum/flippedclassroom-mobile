@@ -20,7 +20,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${course.getCourse_name()}</h3>
+        <h3>${course.getCourseName()}</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
@@ -54,27 +54,27 @@
                     <td style="padding-left: 10%">
                         <table>
                             <tr>
-                                <td>展示 ${course.getPresentation_percentage()}%</td>
+                                <td>展示 ${course.getPresentationPercentage()}%</td>
                             </tr>
                             <tr>
-                                <td>提问 ${course.getQuestion_percentage()}%</td>
+                                <td>提问 ${course.getQuestionPercentage()}%</td>
                             </tr>
                             <tr>
-                                <td>报告 ${course.getReport_percentage()}%</td>
+                                <td>报告 ${course.getReportPercentage()}%</td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
                     <td>小组人数:</td>
-                    <td style="float: right">${courseMemberLimitStrategy.getMin_member()}~${courseMemberLimitStrategy.getMax_member()}</td>
+                    <td style="float: right">${courseMemberLimitStrategy.getMinMember()}~${courseMemberLimitStrategy.getMaxMember()}</td>
                 </tr>
                 <tr>
                     <td>组队开始:</td>
                     <td style="float: right">
                         <table>
                             <tr>
-                                <td>${course.getTeam_start_time()}</td>
+                                <td>${course.getTeamStartTime()}</td>
                             </tr>
 
                         </table>
@@ -85,7 +85,7 @@
                     <td style="float: right">
                         <table>
                             <tr>
-                                <td>${course.getTeam_end_time()}</td>
+                                <td>${course.getTeamEndTime()}</td>
                             </tr>
 
                         </table>
@@ -97,15 +97,15 @@
                         <table>
                             <#if courseList?exists>
                                 <#list courseList as conflictCourse>
-                                <#if teacherList?exists>
-                                <#list teacherList as teacher>
-                                <#if teacher.getId()==conflictCourse.getTeacher_id()>
+                                    <#if teacherList?exists>
+                                        <#list teacherList as teacher>
+                                            <#if teacher.getId()==conflictCourse.getTeacherId()>
                             <tr>
-                                <td>${conflictCourse.getCourse_name()}(${teacher.getTeacher_name()}老师)</td>
+                                <td>${conflictCourse.getCourseName()}(${teacher.getTeacherName()}老师)</td>
                             </tr>
-                                </#if>
-                                </#list>
-                                </#if>
+                                            </#if>
+                                        </#list>
+                                    </#if>
                                 </#list>
                             </#if>
                         </table>

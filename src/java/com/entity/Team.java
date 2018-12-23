@@ -5,11 +5,11 @@ package com.entity;
  */
 public class Team {
     private int id;
-    private int klass_id;
-    private int course_id;
-    private int leader_id;
-    private String team_name;
-    private int team_serial;
+    private int klassId;
+    private int courseId;
+    private int leaderId;
+    private String teamName;
+    private int teamSerial;
     private int status;
 
     public int getId() {
@@ -20,44 +20,44 @@ public class Team {
         this.id = id;
     }
 
-    public int getKlass_id() {
-        return klass_id;
+    public int getKlassId() {
+        return klassId;
     }
 
-    public void setKlass_id(int klass_id) {
-        this.klass_id = klass_id;
+    public void setKlassId(int klassId) {
+        this.klassId = klassId;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    public int getLeader_id() {
-        return leader_id;
+    public int getLeaderId() {
+        return leaderId;
     }
 
-    public void setLeader_id(int leader_id) {
-        this.leader_id = leader_id;
+    public void setLeaderId(int leaderId) {
+        this.leaderId = leaderId;
     }
 
-    public String getTeam_name() {
-        return team_name;
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void setTeam_name(String team_name) {
-        this.team_name = team_name;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
-    public int getTeam_serial() {
-        return team_serial;
+    public int getTeamSerial() {
+        return teamSerial;
     }
 
-    public void setTeam_serial(int team_serial) {
-        this.team_serial = team_serial;
+    public void setTeamSerial(int teamSerial) {
+        this.teamSerial = teamSerial;
     }
 
     public int getStatus() {

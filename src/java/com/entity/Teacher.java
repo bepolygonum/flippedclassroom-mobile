@@ -7,9 +7,16 @@ public class Teacher {
     private int id;
     private String account;
     private String password;
-    private  String teacher_name;
-    private  String email;
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    private boolean isActive;
     public int getId() {
         return id;
     }
@@ -34,12 +41,12 @@ public class Teacher {
         this.password = password;
     }
 
-    public String getTeacher_name() {
-        return teacher_name;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setTeacher_name(String teacher_name) {
-        this.teacher_name = teacher_name;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
     public String getEmail() {
@@ -49,5 +56,8 @@ public class Teacher {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    private  String teacherName;
+    private  String email;
 
 }

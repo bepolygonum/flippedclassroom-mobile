@@ -9,8 +9,31 @@ import java.util.List;
  */
 @Repository
 public interface KlassDao {
+    /**
+     * get KlassID By CourseID
+     * @param courseId
+     * @return
+     */
     List<Integer> getKlassIDByCourseID(int courseId);
+
+    /**
+     *  get KlassID By StudentID
+     * @param id
+     * @return
+     */
     List getKlassIDByStudentID(int id);
+
+    /**
+     * get Klass By KlassID
+     * @param id
+     * @return
+     */
     Klass getKlassByKlassID(int id);
+
+    /**
+     *  get Klass By CourseID
+     * @param courseId
+     * @return
+     */
     List<Klass> getKlassByCourseID(int courseId);
 }

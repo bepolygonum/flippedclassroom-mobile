@@ -37,7 +37,7 @@
         </a>
     </div>
     <div class="am-topbar-brand">
-        <h3>${teacher.getTeacher_name()}</h3>
+        <h3>${teacher.getTeacherName()}</h3>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>

@@ -52,7 +52,7 @@
                 <div class="am-u-sm-12">
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <span>${item.getCourse_name()}</span>
+                            <span>${item.getCourseName()}</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
@@ -69,15 +69,15 @@
                                     <span>课程信息</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>
-                                <a href="score.html">
+                                <a href="/teacher/course/klassList?id=${id}&courseId=${item.getId()}">
                                     <span>班级信息</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>
-                                <a href="score.html">
+                                <a href="/teacher/course/seminar?id=${id}&courseId=${item.getId()}">
                                     <span>讨论课设置</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>
-                                <a href="score.html">
+                                <a href="/teacher/course/share?id=${id}&courseId=${item.getId()}">
                                     <span>共享设置</span>
                                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                                 </a>

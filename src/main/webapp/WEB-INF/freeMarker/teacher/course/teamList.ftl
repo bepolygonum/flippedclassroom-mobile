@@ -47,11 +47,11 @@
                         <#list teamList as team>
                             <#if klassList?exists>
                                 <#list klassList as klass>
-                                    <#if klass.getId()==team.getKlass_id()>
+                                    <#if klass.getId()==team.getKlassId()>
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <span>${klass.getKlass_serial()}-${team.getTeam_serial()}</span>
-                            <span style="margin-left: 30px">${team.getTeam_name()}</span>
+                            <span>${klass.getKlassSerial()}-${team.getTeamSerial()}</span>
+                            <span style="margin-left: 30px">${team.getTeamName()}</span>
                             <span style="margin-left: 40px">
                                 <#if team.getStatus()==0> invaild
                                 <#elseif team.getStatus()==1> vaild
@@ -66,23 +66,23 @@
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <#if klassStudentList?exists>
                                         <#list klassStudentList as klassStudent>
-                                        <#if klassStudent.getTeam_id()==team.getId()>
+                                        <#if klassStudent.getTeamId()==team.getId()>
                                     <#if studentList?exists>
                                         <#list studentList as student>
-                                        <#if student.getId()==klassStudent.getStudent_id()>
+                                        <#if student.getId()==klassStudent.getStudentId()>
 
-                                            <#if student.getId()==team.getLeader_id()>
+                                            <#if student.getId()==team.getLeaderId()>
                                         <tr>
                                             <td>组长</td>
                                             <td>${student.getAccount()}</td>
-                                            <td>${student.getStudent_name()}</td>
+                                            <td>${student.getStudentName()}</td>
                                         </tr>
 
                                             <#else>
                                         <tr>
                                             <td>组员</td>
                                             <td>${student.getAccount()}</td>
-                                            <td>${student.getStudent_name()}</td>
+                                            <td>${student.getStudentName()}</td>
                                         </tr>
                                             </#if>
                                         </#if>

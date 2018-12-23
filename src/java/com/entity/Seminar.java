@@ -7,15 +7,9 @@ import java.sql.Timestamp;
  */
 public class Seminar {
     private int id;
-    private int course_id;
-    private int round_id;
-    private String seminar_name;
-    private String introduction;
-    private int max_team;
-    private int is_visible;
-    private int seminar_serial;
-    private Timestamp enroll_start_time;
-    private Timestamp enroll_end_time;
+    private int courseId;
+    private int roundId;
+    private String seminarName;
 
     public int getId() {
         return id;
@@ -25,28 +19,28 @@ public class Seminar {
         this.id = id;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    public int getRound_id() {
-        return round_id;
+    public int getRoundId() {
+        return roundId;
     }
 
-    public void setRound_id(int round_id) {
-        this.round_id = round_id;
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
     }
 
-    public String getSeminar_name() {
-        return seminar_name;
+    public String getSeminarName() {
+        return seminarName;
     }
 
-    public void setSeminar_name(String seminar_name) {
-        this.seminar_name = seminar_name;
+    public void setSeminarName(String seminarName) {
+        this.seminarName = seminarName;
     }
 
     public String getIntroduction() {
@@ -57,46 +51,52 @@ public class Seminar {
         this.introduction = introduction;
     }
 
-    public int getMax_team() {
-        return max_team;
+    public int getMaxTeam() {
+        return maxTeam;
     }
 
-    public void setMax_team(int max_team) {
-        this.max_team = max_team;
+    public void setMaxTeam(int maxTeam) {
+        this.maxTeam = maxTeam;
     }
 
-    public int getIs_visible() {
-        return is_visible;
+    public int getIsVisible() {
+        return isVisible;
     }
 
-    public void setIs_visible(int is_visible) {
-        this.is_visible = is_visible;
+    public void setIsVisible(int isVisible) {
+        this.isVisible = isVisible;
     }
 
-    public int getSeminar_serial() {
-        return seminar_serial;
+    public int getSeminarSerial() {
+        return seminarSerial;
     }
 
-    public void setSeminar_serial(int seminar_serial) {
-        this.seminar_serial = seminar_serial;
+    public void setSeminarSerial(int seminarSerial) {
+        this.seminarSerial = seminarSerial;
     }
 
-    public Timestamp getEnroll_start_time() {
-        return enroll_start_time;
+    public Timestamp getEnrollStartTime() {
+        return enrollStartTime;
     }
 
-    public void setEnroll_start_time(Timestamp enroll_start_time) {
-        this.enroll_start_time = enroll_start_time;
+    public void setEnrollStartTime(Timestamp enrollStartTime) {
+        this.enrollStartTime = enrollStartTime;
     }
 
-    public Timestamp getEnroll_end_time() {
-        return enroll_end_time;
+    public Timestamp getEnrollEndTime() {
+        return enrollEndTime;
     }
 
-    public void setEnroll_end_time(Timestamp enroll_end_time) {
-        this.enroll_end_time = enroll_end_time;
+    public void setEnrollEndTime(Timestamp enrollEndTime) {
+        this.enrollEndTime = enrollEndTime;
     }
 
+    private String introduction;
+    private int maxTeam;
+    private int isVisible;
+    private int seminarSerial;
+    private Timestamp enrollStartTime;
+    private Timestamp enrollEndTime;
 
 
 }

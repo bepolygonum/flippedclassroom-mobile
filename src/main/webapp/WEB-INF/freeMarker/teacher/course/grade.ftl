@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 
-<<head>
+<head>
     <meta charset="utf-8">
     <title>学生成绩</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">

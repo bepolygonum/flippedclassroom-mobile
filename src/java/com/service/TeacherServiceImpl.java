@@ -6,10 +6,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author KEKE
+ */
 @Service(value = "TeacherService")
 public class TeacherServiceImpl {
     @Autowired
     TeacherDao teacherDao;
+
     public Teacher getTeacherByAccount(String account, String password) {
         return teacherDao.getTeacherByAccount(account,password);
     }

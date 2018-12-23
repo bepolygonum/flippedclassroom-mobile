@@ -1,13 +1,42 @@
 package com.dao;
 
 import com.entity.KlassStudent;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author KEKE
+ */
+@Repository
 public interface KlassStudentDao {
+    /**
+     * get KlassStudent By CourseID
+     * @param courseId
+     * @return
+     */
     List<KlassStudent> getKlassStudentByCourseID(int courseId);
-    List<KlassStudent> getKlassStudentByStudentIdAndKlassId(int studentId,int klassid);
-    List<KlassStudent> getKlassStudentByTeamID(int team_id, int courseId);
 
+    /**
+     * get KlassStudent By StudentId And KlassId
+     * @param studentId
+     * @param klassid
+     * @return
+     */
+    List<KlassStudent> getKlassStudentByStudentIdAndKlassId(int studentId,int klassid);
+
+    /**
+     * get KlassStudent By TeamID
+     * @param teamid
+     * @param courseId
+     * @return
+     */
+    List<KlassStudent> getKlassStudentByTeamID(int teamid, int courseId);
+
+    /**
+     *  get KlassStudent With No Team
+     * @param courseId
+     * @return
+     */
     List<KlassStudent> getKlassStudentWithNoTeam(int courseId);
 }
