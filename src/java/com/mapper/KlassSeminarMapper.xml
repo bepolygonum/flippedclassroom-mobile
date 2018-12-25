@@ -40,7 +40,7 @@
         </foreach>
     </select>
     <select id="getKlassSeminarIDByKlassId" resultType="Integer">
-        select seminar_id from standard_seminar_system.klass_seminar where klass_id=#{0}
+        select id  from standard_seminar_system.klass_seminar where klass_id=#{0}
     </select>
     <select id="getKlassSeminarBySeminarID"  resultMap="klassSeminarResultMap">
         SELECT * FROM  standard_seminar_system.klass_seminar

@@ -12,24 +12,6 @@
     <script src="../../../../assets/js/echarts.min.js"></script>
 </head>
 
-<script>
-    function doPost(to) { // to:提交动作（action）,p:参数
-        var myForm = document.createElement("form");
-        myForm.method = "post";
-        myForm.action = to;
-
-        var myInput = document.createElement("input");
-        myInput.setAttribute("name", "id"); // 为input对象设置name
-
-        myInput.setAttribute("value", "${id}"); // 为input对象设置value
-        myForm.appendChild(myInput);
-
-        document.body.appendChild(myForm);
-        myForm.submit();
-        document.body.removeChild(myForm); // 提交后移除创建的form
-    }
-</script>
-
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand1">

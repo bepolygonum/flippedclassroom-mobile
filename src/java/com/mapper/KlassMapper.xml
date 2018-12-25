@@ -29,4 +29,5 @@
     <select id="getKlassByCourseID"  resultMap="klassResultMap">
         SELECT * FROM  standard_seminar_system.klass WHERE course_id=#{courseId}
     </select>
+
 </mapper>

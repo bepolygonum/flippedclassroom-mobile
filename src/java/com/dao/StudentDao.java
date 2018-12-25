@@ -25,13 +25,7 @@ public interface StudentDao {
      */
     List<Student> getStudentByStudentID(List<Integer> studentIds);
 
-    /**
-     * get TeamId By StudentId
-     * @param id
-     * @param courseid
-     * @return
-     */
-    int getTeamIdByStudentId(int id,int courseid);
+
 
     /**
      * get Student By ID
@@ -39,4 +33,5 @@ public interface StudentDao {
      * @return
      */
     Student getStudentByID(int studentId);
+
 }

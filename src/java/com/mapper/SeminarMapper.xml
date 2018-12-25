@@ -8,7 +8,6 @@
         <!-- property：主键在pojo中的属性名 -->
         <!-- column：主键在数据库中的列名 -->
         <id property="id" column="id" />
-
         <!-- 定义普通属性 -->
         <result property="courseId" column="course_id" />
         <result property="roundId" column="round_id" />
@@ -19,9 +18,8 @@
         <result property="seminarSerial" column="seminar_serial" />
         <result property="enrollStartTime" column="enroll_start_time" />
         <result property="enrollEndTime" column="enroll_end_time" />
-
-
     </resultMap>
+
     <select id="getSeminarByRoundID" resultMap="seminarResultMap">
         SELECT * FROM  standard_seminar_system.seminar
         WHERE course_id=#{courseId} and round_id in
@@ -33,5 +31,7 @@
     <select id="getSeminarByCourseID" resultMap="seminarResultMap">
         SELECT  * FROM  standard_seminar_system.seminar WHERE course_id=#{0}
     </select>
-
+    <select id="getSeminarBySeminarID" resultMap="seminarResultMap">
+        SELECT  * FROM  standard_seminar_system.seminar WHERE id=#{0}
+    </select>
 </mapper>

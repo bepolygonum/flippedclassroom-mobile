@@ -22,10 +22,6 @@ public class StudentServiceImpl {
         return studentDao.getStudentByAccount(account,password);
     }
 
-    public int getTeamIdByStudentId(int id,int courseid) {
-        return  studentDao.getTeamIdByStudentId(id,courseid);
-    }
-
     public List<Student> getStudentByStudentID(List<Integer> studentIds)
     {
         return studentDao.getStudentByStudentID(studentIds);

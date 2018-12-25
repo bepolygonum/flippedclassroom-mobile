@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="../../../../../assets_student/i/favicon.png">
+    <link rel="icon" type="image/png" href="../../../../../assets/i/favicon.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="../../../../../assets_student/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../../../../../assets_student/css/admin.css">
-    <link rel="stylesheet" href="../../../../../assets_student/css/app.css">
-    <script src="../../../../../assets_student/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="../../../../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../../../assets/css/app.css">
+    <script src="../../../../../assets/js/echarts.min.js"></script>
     <script>
         function  conf() {
             var r=confirm("将 王二 移出小组？");
@@ -46,17 +46,10 @@
     </button>
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">${student.getStudentName()}</span>
-                </a>
-                <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="index_message.html"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
                     <li><a href="index_personal.html"><span class="am-icon-user"></span> 个人信息</a></li>
                     <li><a href="index_personal.html"><span class="am-icon-leanpub"></span> 讨论课</a></li>
                     <li><a href="login.html"><span class="am-icon-power-off"></span>退出</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
 </header>
@@ -81,11 +74,13 @@
                         </tr>
                         <#if memberTeam?exists>
                         <#list memberTeam as member>
+                        <#if member.getId()!=student.getId()>
                         <tr>
                             <td>组员</td>
                             <td>${member.getAccount()}</td>
                             <td><a onclick="conf()">${member.getStudentName()}</a></td>
                         </tr>
+                        </#if>
                         </#list>
                         </#if>
                     </table>
@@ -124,9 +119,9 @@
         </div>
     </div>
 </div>
-<script src="../../../../../assets_student/js/jquery.min.js"></script>
-<script src="../../../../../assets_student/js/amazeui.min.js"></script>
-<script src="../../../../../assets_student/js/app.js"></script>
+<script src="../../../../../assets/js/jquery.min.js"></script>
+<script src="../../../../../assets/js/amazeui.min.js"></script>
+<script src="../../../../../assets/js/app.js"></script>
 </body>
 
 </html>

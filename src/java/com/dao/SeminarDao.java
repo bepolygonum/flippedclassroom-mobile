@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.entity.Attendance;
 import com.entity.Seminar;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -25,5 +26,13 @@ public interface SeminarDao {
      * @return
      */
     List<Seminar> getSeminarByCourseID(int courseid);
+
+    /**
+     * getSeminarBySeminarID
+     * @param seminarid
+     * @return
+     */
+    Seminar getSeminarBySeminarID(int seminarid);
+
 
 }

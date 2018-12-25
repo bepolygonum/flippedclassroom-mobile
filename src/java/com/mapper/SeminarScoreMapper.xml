@@ -22,5 +22,12 @@
             #{klassSeminarIds}
         </foreach>
     </select>
+    <insert id="insertEnrollByTeamIdAndSeminarId">
+        insert  into standard_seminar_system.seminar_score (klass_seminar_id,team_id) values (#{0},#{1})
+    </insert>
+    <insert id="insertAttendByTeamIdAndSeminarId">
+        insert  into standard_seminar_system.attendance (klass_seminar_id,team_id,team_order,is_present)
+                values (#{0},#{1},#{2},0)
+    </insert>
 
 </mapper>

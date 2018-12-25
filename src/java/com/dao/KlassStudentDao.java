@@ -25,18 +25,5 @@ public interface KlassStudentDao {
      */
     List<KlassStudent> getKlassStudentByStudentIdAndKlassId(int studentId,int klassid);
 
-    /**
-     * get KlassStudent By TeamID
-     * @param teamid
-     * @param courseId
-     * @return
-     */
-    List<KlassStudent> getKlassStudentByTeamID(int teamid, int courseId);
 
-    /**
-     *  get KlassStudent With No Team
-     * @param courseId
-     * @return
-     */
-    List<KlassStudent> getKlassStudentWithNoTeam(int courseId);
 }

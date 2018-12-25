@@ -21,9 +21,7 @@
     <select id="getStudentByAccount"  resultMap="studentResultMap">
         SELECT * FROM  standard_seminar_system.student WHERE account = #{0} and password=#{1}
     </select>
-    <select id="getTeamIdByStudentId"  resultType="Integer">
-        SELECT team_id FROM  standard_seminar_system.klass_student WHERE student_id = #{0} and  course_id=#{1}
-    </select>
+
     <select id="getStudentByStudentID"  resultMap="studentResultMap">
         SELECT * FROM  standard_seminar_system.student
         WHERE id in

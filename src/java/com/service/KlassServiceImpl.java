@@ -1,13 +1,7 @@
 package com.service;
 
-import com.dao.KlassDao;
-import com.dao.KlassSeminarDao;
-import com.dao.KlassStudentDao;
-import com.dao.SeminarScoreDao;
-import com.entity.Klass;
-import com.entity.KlassSeminar;
-import com.entity.KlassStudent;
-import com.entity.SeminarScore;
+import com.dao.*;
+import com.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +29,6 @@ public class KlassServiceImpl {
         List<Integer> klassIds=klassDao.getKlassIDByCourseID(courseId);
         List<Integer> klassSeminarIds=klassSeminarDao.getKlassSeminarIDByKlassIdSeminarID(klassIds,seminarIds);
         List<SeminarScore> seminarScores=seminarScoreDao.getSeminarScoreByKlassSeminarID(klassSeminarIds);
-        System.out.print(seminarScores.get(0).getPresentationScore());
         return  seminarScores;
     }
 
@@ -74,19 +67,17 @@ public class KlassServiceImpl {
     }
 
 
-    public List<KlassStudent> getKlassStudentByTeamID(int teamid, int courseId) {
-        return klassStudentDao.getKlassStudentByTeamID(teamid,courseId);
-    }
-
-
-    public List<KlassStudent> getKlassStudentWithNoTeam(int courseId) {
-        return klassStudentDao.getKlassStudentWithNoTeam(courseId);
-    }
-
     public Klass getKlassByKlassID(int klassId) {
         return klassDao.getKlassByKlassID(klassId);
     }
 
     public List<KlassSeminar> getKlassSeminarBySeminarID(List<Integer> seminarIds){return klassSeminarDao.getKlassSeminarBySeminarID(seminarIds);}
+
+    public List<KlassSeminar> getKlassSeminarByKlassIdAndSeminarId(int klassId, int seminarid) {
+        List list=new ArrayList(),list1=new ArrayList();
+        list.add(klassId);
+        list1.add(seminarid);
+        return klassSeminarDao.getKlassSeminarByKlassIdSeminarID(list,list1);
+    }
 
 }

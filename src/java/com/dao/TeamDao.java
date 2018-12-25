@@ -22,4 +22,27 @@ public interface TeamDao {
      * @return
      */
     Team getTeamById(int teamid);
+
+    /**
+     * getTeamIdById
+     * @param id
+     * @return
+     */
+    List getTeamIdByStudentId(int id);
+
+    /**
+     * getStudentByTeamID
+     * @param id
+     * @return
+     */
+    List getStudentIdByTeamId(int id);
+
+    /**
+     * getTeamByKlassID
+     * @param ids
+     * @return
+     */
+    List<Integer> getTeamIdByKlassId(List<Integer> ids);
+
+    List<Team> getTeamByIds(List<Integer> ids);
 }

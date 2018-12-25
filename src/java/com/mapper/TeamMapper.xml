@@ -17,12 +17,31 @@
         <result property="teamSerial" column="team_serial" />
         <result property="status" column="status" />
 
-
     </resultMap>
     <select id="getTeamByCourseID"  resultMap="teamResultMap">
         SELECT * FROM  standard_seminar_system.team WHERE course_id=#{courseId}
     </select>
     <select id="getTeamById"  resultMap="teamResultMap">
         SELECT * FROM  standard_seminar_system.team WHERE id=#{0}
+    </select>
+    <select id="getTeamIdByStudentId"  resultType="Integer">
+    SELECT team_id FROM  standard_seminar_system.team_student WHERE student_id=#{0}
+</select>
+    <select id="getStudentIdByTeamId" resultType="Integer">
+        SELECT student_id FROM standard_seminar_system.team_student WHERE team_id=#{0}
+    </select>
+    <select id="getTeamIdByKlassId" resultType="Integer">
+        SELECT team_id FROM  standard_seminar_system.klass_team
+        WHERE klass_id in
+        <foreach  collection="list" item="ids" open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </select>
+    <select id="getTeamByIds" resultMap="teamResultMap">
+        SELECT *  FROM  standard_seminar_system.team
+        WHERE id in
+        <foreach  collection="list" item="ids" open="(" separator="," close=")">
+            #{ids}
+        </foreach>
     </select>
 </mapper>

@@ -36,4 +36,5 @@ public interface KlassDao {
      * @return
      */
     List<Klass> getKlassByCourseID(int courseId);
+
 }
