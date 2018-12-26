@@ -1,14 +1,17 @@
 package com.entity;
 
+import java.util.Comparator;
+
 /**
  * @author KEKE
  */
-public class Round {
+public class Round implements Comparator<Round> {
     private int id;
     private int courseId;
     private int roundSerial;
     private int presentationScoreMethod;
     private int reportScoreMethod;
+    private int questionScoreMethod;
 
     public int getId() {
         return id;
@@ -58,6 +61,18 @@ public class Round {
         this.questionScoreMethod = questionScoreMethod;
     }
 
-    private int questionScoreMethod;
+
+    @Override
+    public int compare(Round o1, Round o2) {
+
+        //按照学生的年龄进行升序排列
+        if(o1.getRoundSerial() > o2.getRoundSerial()){
+            return 1;
+        }
+        if(o1.getRoundSerial() == o2.getRoundSerial()){
+            return 0;
+        }
+        return -1;
+    }
 
 }

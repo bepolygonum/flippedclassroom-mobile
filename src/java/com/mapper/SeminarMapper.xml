@@ -34,4 +34,11 @@
     <select id="getSeminarBySeminarID" resultMap="seminarResultMap">
         SELECT  * FROM  standard_seminar_system.seminar WHERE id=#{0}
     </select>
+    <select id="getSeminarBySeminarName" resultMap="seminarResultMap">
+        SELECT  * FROM  standard_seminar_system.seminar WHERE seminar_name=#{0}
+    </select>
+    <insert id="createASeminar" >
+        insert into standard_seminar_system.seminar(course_id, round_id, seminar_name, introduction, max_team, is_visible, seminar_serial, enroll_start_time, enroll_end_time)
+        values(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8});
+    </insert>
 </mapper>

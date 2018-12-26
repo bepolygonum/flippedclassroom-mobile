@@ -15,9 +15,12 @@
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand1">
-        <a href="courselist.html">
-            <div class="am-icon-chevron-left" style="color: darkgray"></div>
-        </a>
+        <form id="_form" action="/teacher/courseManage" method="post">
+            <a onclick="document.getElementById('_form').submit();">
+                <input value="${id}" name="id" hidden="hidden">
+                <div class="am-icon-chevron-left" style="color: darkgray"></div>
+            </a>
+        </form>
     </div>
     <div class="am-topbar-brand">
         <h3>学生组队</h3>
@@ -51,8 +54,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <span>${klass.getKlassSerial()}-${team.getTeamSerial()}</span>
-                            <span style="margin-left: 30px">${team.getTeamName()}</span>
-                            <span style="margin-left: 40px">
+                            <span style="margin-left: 3rem">
                                 <#if team.getStatus()==0> invaild
                                 <#elseif team.getStatus()==1> vaild
                                 <#else> audit
@@ -64,12 +66,12 @@
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
                                 <table class="am-table am-table-striped am-table-hover table-main">
-                                    <#if klassStudentList?exists>
-                                        <#list klassStudentList as klassStudent>
-                                        <#if klassStudent.getTeamId()==team.getId()>
+                                    <#if teamStudentList?exists>
+                                        <#list teamStudentList as teamStudent>
+                                        <#if teamStudent.getTeamId()==team.getId()>
                                     <#if studentList?exists>
                                         <#list studentList as student>
-                                        <#if student.getId()==klassStudent.getStudentId()>
+                                        <#if student.getId()==teamStudent.getStudentId()>
 
                                             <#if student.getId()==team.getLeaderId()>
                                         <tr>
@@ -87,6 +89,11 @@
                                             </#if>
                                         </#if>
                                         </#list>
+
+
+
+
+
                                     </#if>
                                         </#if>
                                         </#list>

@@ -34,4 +34,6 @@ public interface StudentDao {
      */
     Student getStudentByID(int studentId);
 
+    void setEmailByID(int studentId , String newmail);
+
 }

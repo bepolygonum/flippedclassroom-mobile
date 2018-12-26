@@ -19,9 +19,13 @@
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand1">
-        <a href="homepage.html">
-            <div class="am-icon-chevron-left" style="color: darkgray"></div>
-        </a>
+        <form id="_form" action="/teacher/home" method="post">
+            <a onclick="document.getElementById('_form').submit();">
+                <input value="${id}" name="id" hidden="hidden">
+                <div class="am-icon-chevron-left" style="color: darkgray"></div>
+            </a>
+        </form>
+
     </div>
     <div class="am-topbar-brand">
         <h3>课程管理</h3>
@@ -95,7 +99,7 @@
 
     <div class="tpl-portlet-components">
         <li class="tpl-left-nav-item">
-            <a class="nav-link tpl-left-nav-link-list">
+            <a class="nav-link tpl-left-nav-link-list" href="/teacher/course/createCourse?id=${id}">
                 <i class="am-icon-plus"></i>
                 <span>新建课程</span>
                 <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>

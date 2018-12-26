@@ -38,4 +38,10 @@ public interface TeacherDao {
      * @return
      */
     Teacher getTeacherByTeacherID(int teacherId);
+
+    /**
+     * getAllTeachers
+     * @return
+     */
+    List<Teacher> getAllTeachers();
 }

@@ -37,4 +37,5 @@ public interface KlassDao {
      */
     List<Klass> getKlassByCourseID(int courseId);
 
+    void createAKlass(int courseId,int grade,int klassSerial,String klassTime,String location);
 }

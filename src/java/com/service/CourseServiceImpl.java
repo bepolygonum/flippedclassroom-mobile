@@ -5,6 +5,7 @@ import com.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -26,7 +27,7 @@ public class CourseServiceImpl  {
     @Autowired
     SeminarDao seminarDao;
     @Autowired
-    CourseMemberLimitStrategyServiceImpl courseMemberLimitStrategyDao;
+    CourseMemberLimitStrategyDao courseMemberLimitStrategyDao;
 
     public List<Course> getCourseByTeacherID(int id)
     {
@@ -75,4 +76,25 @@ public class CourseServiceImpl  {
     public List<Course> getCourseByTeamMainCourseID(int id){return courseDao.getCourseByTeamMainCourseID(id);}
 
 
+    public Integer getConflictIdByCourseID(int courseId){return conflictCourseStrategyDao.getIdByCourseID(courseId);}
+
+    public List<Integer> getConflictCourseIdByID(int cid) {return conflictCourseStrategyDao.getCourseIdByID(cid);}
+
+    public List<Course> getCoursesByCourseID(List<Integer> courseIds)
+    {return courseDao.getCoursesByCourseID(courseIds);}
+
+    public List<Course> getAllCourses() {return courseDao.getAllCourses();}
+
+    public Course getCourseByCourseName(String courseName) {return courseDao.getCourseByCourseName(courseName);}
+
+    public void createACourse(int teacherId, String courseName, String introduction, int presentationPercentage, int questionPercentage, int reportPercentage, Timestamp teamStartTime, Timestamp teamEndTime)
+    { courseDao.createACourse(teacherId,courseName,introduction,presentationPercentage,questionPercentage,reportPercentage,teamStartTime,teamEndTime);}
+
+    public List<Integer> getAllConflictId() {return conflictCourseStrategyDao.getAllConflictId();}
+
+    public void createConflictCourse(int id,int course1Id,int course2Id)
+    {
+        conflictCourseStrategyDao.createHarfOfConflictCourse(id,course1Id);
+        conflictCourseStrategyDao.createHarfOfConflictCourse(id,course2Id);
+    }
 }

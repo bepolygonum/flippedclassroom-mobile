@@ -49,6 +49,7 @@ public class StudentController {
         model.addAttribute(student);
         return "/student/courseManage";
     }
+
     @RequestMapping(value = "/courseInfo", method = RequestMethod.POST)
     public String courseInfo(Model model, @RequestParam(name = "id") String sid,@RequestParam (name="course_id")String courseid)  {
         int id=Integer.valueOf(sid);
@@ -193,7 +194,7 @@ public class StudentController {
             }
         }
         model.addAttribute(courseList);
-        return "/student/seminar/seminar-course";
+        return "student/seminar/seminarCourse";
     }
 
 
@@ -209,7 +210,7 @@ public class StudentController {
         List<Seminar> seminarList = seminarService.getSeminarByCourseID(courseid);
         model.addAttribute(seminarList);
         model.addAttribute(course);
-        return "/student/seminar/seminar-round";
+        return "student/seminar/seminarRound";
     }
 
     @RequestMapping(value = "/seminar-detail")
@@ -222,7 +223,7 @@ public class StudentController {
         model.addAttribute("status",status.get(0).getStatus());
         model.addAttribute(seminar);
         model.addAttribute(student);
-        return "/student/seminar/seminar-detail";
+        return "student/seminar/seminarDetail";
     }
     @RequestMapping(value = "/enroll-detail")
     public String seminarEnrollPage(Model model, @RequestParam(name = "id") String sid,@RequestParam (name = "seminarid") String seminarId) {
@@ -242,21 +243,56 @@ public class StudentController {
         model.addAttribute(attandances);
         model.addAttribute(seminar);
         model.addAttribute(student);
-        return "/student/seminar/enroll-detail";
+        return "student/seminar/enrollDetail";
     }
 
-    @RequestMapping(value = "/enroll")
-    public String seminarEnroll(Model model, @RequestParam(name = "id") String sid,@RequestParam (name = "seminarid") String seminarId,@RequestParam(name = "order") int order) {
-        int id=Integer.valueOf(sid);
-        int seminarid=Integer.valueOf(seminarId);
-        Student student=studentService.getStudentByID(id);
-        Seminar seminar=seminarService.getSeminarBySeminarId(seminarid);
-        int teamid =teamService.getTeamIdByStudentIdAndCourseId(id,seminar.getCourseId()).get(0);
-        Team team=teamService.getTeamById(teamid);
-        seminarService.insertEnrollByTeamIdAndSeminarId(team.getId(),seminar.getId(),order);
+//    @RequestMapping(value = "/enroll")
+//    public String seminarEnroll(Model model, @RequestParam(name = "id") String sid,@RequestParam (name = "seminarid") String seminarId,@RequestParam(name = "order") int order) {
+//        int id=Integer.valueOf(sid);
+//        int seminarid=Integer.valueOf(seminarId);
+//        Student student=studentService.getStudentByID(id);
+//        Seminar seminar=seminarService.getSeminarBySeminarId(seminarid);
+//        int teamid =teamService.getTeamIdByStudentIdAndCourseId(id,seminar.getCourseId()).get(0);
+//        Team team=teamService.getTeamById(teamid);
+//        seminarService.insertEnrollByTeamIdAndSeminarId(team.getId(),seminar.getId(),order);
+//
+//        model.addAttribute(seminar);
+//        model.addAttribute(student);
+//        return "student/seminar/seminarDetail";
+//    }
 
-        model.addAttribute(seminar);
+
+    @RequestMapping(value = "/personalInfo" , method = RequestMethod.POST)
+    public String personalInformation(Model model, @RequestParam(name = "id") String sid) {
+        int id=Integer.valueOf(sid);
+        Student student=studentService.getStudentByID(id);
         model.addAttribute(student);
-        return "/student/seminar/seminar-detail";
+        return "/student/person/personalInfo";
+    }
+
+    @RequestMapping(value = "/modifyEmail", method = RequestMethod.POST)
+    public String modifyEmail(Model model, @RequestParam(name = "id") String sid) {
+        int id=Integer.valueOf(sid);
+        Student student=studentService.getStudentByID(id);
+        model.addAttribute(student);
+        return "/student/person/modifyEmail";
+    }
+
+    @RequestMapping(value = "/newmail", method = RequestMethod.POST)
+    public String newEmail(Model model, @RequestParam(name = "id") String sid,  @RequestParam String newmail) {
+        int id=Integer.valueOf(sid);
+        studentService.setEmailByID(id,newmail);
+        Student student=studentService.getStudentByID(id);
+        model.addAttribute(student);
+        return "/student/person/personalInfo";
+    }
+
+
+    @RequestMapping(value = "/modifyPassword",  method = RequestMethod.POST)
+    public String modifyPassword(Model model, @RequestParam(name = "id") String sid) {
+        int id=Integer.valueOf(sid);
+        Student student=studentService.getStudentByID(id);
+        model.addAttribute(student);
+        return "/student/person/modifyPassword";
     }
     }

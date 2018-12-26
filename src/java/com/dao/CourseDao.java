@@ -3,6 +3,7 @@ package com.dao;
 import com.entity.Course;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -53,4 +54,30 @@ public interface CourseDao {
      */
     List<Course> getCourseByTeamMainCourseID(int id);
 
+    /**
+     * getAllCourses
+     * @return
+     */
+    List<Course> getAllCourses();
+
+    /**
+     * getCourseByCourseName
+     * @param courseName
+     * @return
+     */
+    Course getCourseByCourseName(String courseName);
+
+    /**
+     * createACourse
+     * @param teacherId
+     * @param courseName
+     * @param introduction
+     * @param presentationPercentage
+     * @param questionPercentage
+     * @param reportPercentage
+     * @param teamStartTime
+     * @param teamEndTime
+     */
+    void createACourse(int teacherId, String courseName, String introduction, int presentationPercentage,
+                       int questionPercentage, int reportPercentage, Timestamp teamStartTime, Timestamp teamEndTime);
 }

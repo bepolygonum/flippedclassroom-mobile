@@ -29,4 +29,5 @@ public class TeacherServiceImpl {
 
     public  Teacher getTeacherByTeacherID(int teacherId){return teacherDao.getTeacherByTeacherID(teacherId);}
 
+    public List<Teacher> getAllTeachers() {return teacherDao.getAllTeachers();}
 }

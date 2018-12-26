@@ -58,12 +58,32 @@
 
 <div class="tpl-page-container tpl-page-header-fixed">
     <div class="tpl-portlet-components">
+        <div class="tpl-block">
+            <div class="am-g">
+                <div class="am-u-sm-12"  style="text-align: right">
+                    <label>${teacher.getTeacherName()}</label>
+
+                    <div class="am-u-sm-12">
+                        <label style="text-align: right">${teacher.getAccount()}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tpl-portlet-components">
         <li class="tpl-left-nav-item">
-            <a href="javascript:doPost('teacher/courseManage')" class="nav-link tpl-left-nav-link-list">
-                <i class="am-icon-book"></i>
+            <form id="_form" action="/teacher/courseManage" method="post">
+         <!--   <a href="javascript:doPost('teacher/courseManage')" class="nav-link tpl-left-nav-link-list">-->
+                <a onclick="document.getElementById('_form').submit();" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-book"></i>
                 <span>我的课程</span>
                 <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-            </a>
+                    <input value="${teacher.getId()}" name="id" hidden="hidden">
+          <!--  </a> -->
+                </a>
+            </form>
+
             <a class="nav-link tpl-left-nav-link-list">
                 <i class="am-icon-unlock-alt"></i>
                 <span>账户与设置</span>

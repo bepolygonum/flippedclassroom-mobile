@@ -6,7 +6,7 @@
     <title>讨论课</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="../../../../assets/i/favicon.png">
-    <link rel="stylesheet" href="../../../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="../../../../assets/css/admin.css">
     <link rel="stylesheet" href="../../../../assets/css/app.css">
     <script src="../../../../assets/js/echarts.min.js"></script>
@@ -25,14 +25,19 @@
 <body data-type="index">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand1">
-        <a href="courselist.html">
-            <div class="am-icon-chevron-left" style="color: darkgray"></div>
-        </a>
+        <form id="_form" action="/teacher/courseManage" method="post">
+            <a onclick="document.getElementById('_form').submit();">
+                <input value="${id}" name="id" hidden="hidden">
+                <div class="am-icon-chevron-left" style="color: darkgray"></div>
+            </a>
+        </form>
+
     </div>
     <div class="am-topbar-brand">
-        <h3>课程名</h3>
+        <h3>${course.getCourseName()}</h3>
     </div>
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
     </button>
 
@@ -40,9 +45,12 @@
 
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
 
-            <li><a href="index_message.html" class="tpl-header-list-link"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
-            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-user"></span> 个人信息</a></li>
-            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-leanpub"></span> 讨论课</a></li>
+            <li><a href="index_message.html" class="tpl-header-list-link"><span class="am-icon-envelope-o"></span> 消息管理</a>
+            </li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-user"></span> 个人信息</a>
+            </li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-leanpub"></span> 讨论课</a>
+            </li>
             <li><a href="login.html" class="tpl-header-list-link"><span class="am-icon-power-off"></span>退出</a></li>
 
         </ul>
@@ -53,69 +61,73 @@
     <div class="tpl-portlet-components">
         <#if roundList?exists>
             <#list roundList as round>
-        <div class="tpl-block">
-            <div class="am-g">
+                <div class="tpl-block">
+                <div class="am-g">
                 <div class="am-u-sm-12">
-                    <li class="tpl-left-nav-item">
-                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <span>第${round.getRoundSerial()}轮</span>
-                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                        </a>
+                <li class="tpl-left-nav-item">
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                <span>第${round.getRoundSerial()}轮</span>
+            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                </a>
 
-                        <ul class="tpl-left-nav-sub-menu">
-                            <li>
-                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                                    <i class="am-icon-gear"></i>
-                                    <span>该轮轮次设置</span>
-                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                                </a>
-                            </li>
+                <ul class="tpl-left-nav-sub-menu">
+            <li>
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-gear"></i>
+                    <span>该轮轮次设置</span>
+                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                </a>
+            </li>
 
-                            <#if seminarList?exists>
-                            <#list seminarList as seminar>
-                            <#if seminar.getRoundId()==round.getId()>
+                <#if seminarList?exists>
+                    <#list seminarList as seminar>
+                        <#if seminar.getRoundId()==round.getId()>
                             <li class="tpl-left-nav-item">
-                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                                    <span>${seminar.getSeminarName()}</span>
-                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                                </a>
-                                <ul class="tpl-left-nav-sub-menu">
-                                    <#if klassSeminarList?exists>
-                                    <#list klassSeminarList as klassSeminar>
+                            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <span>${seminar.getSeminarName()}</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                            </a>
+                            <ul class="tpl-left-nav-sub-menu">
+                            <#if klassSeminarList?exists>
+                                <#list klassSeminarList as klassSeminar>
                                     <#if klassSeminar.getSeminarId()==seminar.getId()>
                                         <#if klassList?exists>
-                                        <#list klassList as klass>
-                                        <#if klass.getId()==klassSeminar.getKlassId()>
-                                    <li class="tpl-left-nav-item">
-                                        <a href="seminar.html">
-                                            <span>${klass.getGrade()}-(${klass.getKlassSerial()})</span>
-                                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                                        </a>
-                                    </li>
-                                        </#if>
-                                        </#list>
+                                            <#list klassList as klass>
+                                                <#if klass.getId()==klassSeminar.getKlassId()>
+                                                    <li class="tpl-left-nav-item">
+                                                    <a href="seminar.html">
+                                                    <span>${klass.getGrade()}-(${klass.getKlassSerial()})</span>
+                                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                                                    </a>
+                                                    </li>
+                                                </#if>
+                                            </#list>
                                         </#if>
                                     </#if>
-                                    </#list>
-                                    </#if>
-                                </ul>
+                                </#list>
+                            </#if>
+                            </ul>
                             </li>
-                            </#if>
-                            </#list>
-                            </#if>
+                        </#if>
+                    </#list>
+                </#if>
 
 
-                        </ul>
-                    </li>
+                </ul>
+                </li>
                 </div>
 
-            </div>
-        </div>
+                </div>
+                </div>
             </#list>
         </#if>
 
-        <button type="submit" class="mybutton"><i class="am-icon-plus" style="float:left"></i>新建轮次</button>
-        <button type="submit" class="mybutton" onclick="window.location.href='newseminar.html'"><i class="am-icon-plus" style="float:left"></i>新建讨论课</button>
+
+        <a href="/teacher/course/seminar/createSeminar?id=${id}&courseId=${course.getId()}">
+            <button class="am-btn am-btn-success" style="width: 100%;margin: 1% 0;" type="submit"><i
+                        class="am-icon-plus" style="margin: 0 2%"></i>新建讨论课
+            </button>
+        </a>
     </div>
 </div>
 

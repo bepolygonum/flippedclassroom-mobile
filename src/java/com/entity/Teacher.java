@@ -7,6 +7,9 @@ public class Teacher {
     private int id;
     private String account;
     private String password;
+    private boolean isActive;
+    private  String teacherName;
+    private  String email;
 
     public boolean isActive() {
         return isActive;
@@ -16,7 +19,6 @@ public class Teacher {
         isActive = active;
     }
 
-    private boolean isActive;
     public int getId() {
         return id;
     }
@@ -57,7 +59,5 @@ public class Teacher {
         this.email = email;
     }
 
-    private  String teacherName;
-    private  String email;
 
 }

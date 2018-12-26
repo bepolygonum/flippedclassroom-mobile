@@ -33,4 +33,8 @@
     <select id="getStudentByID"  resultMap="studentResultMap">
         SELECT * FROM  standard_seminar_system.student WHERE id = #{0}
     </select>
+
+    <update id="setEmailByID">
+        UPDATE student set email = #{1} where id = #{0}
+    </update>
 </mapper>

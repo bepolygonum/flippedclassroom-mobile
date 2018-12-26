@@ -22,6 +22,8 @@ public class StudentServiceImpl {
         return studentDao.getStudentByAccount(account,password);
     }
 
+    public void setEmailByID(int studentId, String newmail) {studentDao.setEmailByID(studentId, newmail);}
+
     public List<Student> getStudentByStudentID(List<Integer> studentIds)
     {
         return studentDao.getStudentByStudentID(studentIds);

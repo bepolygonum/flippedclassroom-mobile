@@ -34,4 +34,8 @@
     <select id="getTeacherByTeacherID" resultMap="teacherResultMap">
         SELECT * FROM  standard_seminar_system.teacher WHERE id = #{0}
     </select>
+
+    <select id="getAllTeachers" resultMap="teacherResultMap">
+        SELECT * FROM  standard_seminar_system.teacher
+    </select>
 </mapper>

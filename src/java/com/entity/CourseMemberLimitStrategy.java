@@ -7,6 +7,7 @@ public class CourseMemberLimitStrategy {
     private int id;
     private int courseId;
     private int minMember;
+    private int maxMember;
 
     public int getId() {
         return id;
@@ -40,5 +41,4 @@ public class CourseMemberLimitStrategy {
         this.maxMember = maxMember;
     }
 
-    private int maxMember;
 }

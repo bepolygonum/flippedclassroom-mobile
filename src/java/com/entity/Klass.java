@@ -9,6 +9,7 @@ public class Klass {
     private int grade;
     private int klassSerial;
     private String klassTime;
+    private String klassLocation;
 
     public int getId() {
         return id;
@@ -58,6 +59,6 @@ public class Klass {
         this.klassLocation = klassLocation;
     }
 
-    private String klassLocation;
+
 
 }

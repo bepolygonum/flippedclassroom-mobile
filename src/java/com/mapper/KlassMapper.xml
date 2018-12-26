@@ -29,5 +29,8 @@
     <select id="getKlassByCourseID"  resultMap="klassResultMap">
         SELECT * FROM  standard_seminar_system.klass WHERE course_id=#{courseId}
     </select>
-
+    <insert id="createAKlass" >
+        insert into standard_seminar_system.klass(course_id, grade, klass_serial, klass_time, klass_location)
+        values(#{0},#{1},#{2},#{3},#{4});
+    </insert>
 </mapper>

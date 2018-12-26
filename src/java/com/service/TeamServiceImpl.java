@@ -3,9 +3,11 @@ package com.service;
 import com.dao.KlassDao;
 import com.dao.KlassStudentDao;
 import com.dao.TeamDao;
+import com.dao.TeamStudentDao;
 import com.entity.KlassStudent;
 import com.entity.Student;
 import com.entity.Team;
+import com.entity.TeamStudent;
 import com.sun.xml.internal.bind.v2.schemagen.episode.Klass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,8 @@ public class TeamServiceImpl  {
     KlassStudentDao klassStudentDao;
     @Autowired
     KlassDao klassDao;
+    @Autowired
+    TeamStudentDao teamStudentDao;
     public List<Team> getTeamByCourseID(int courseId)
     {
         //根据课程id获得所有team
@@ -82,5 +86,11 @@ public class TeamServiceImpl  {
 
     public List<Team> getTeamByIds(List ids) {
         return teamDao.getTeamByIds(ids);
+    }
+
+
+    public List<TeamStudent> getTeamStudentsByTeamIds(List<Integer> teamIds)
+    {
+        return teamStudentDao.getTeamStudentsByTeamIds(teamIds);
     }
 }

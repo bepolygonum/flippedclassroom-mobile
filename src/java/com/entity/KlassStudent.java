@@ -2,11 +2,15 @@ package com.entity;
 
 /**
  * @author KEKE
+ * teamId无用
  */
 public class KlassStudent {
     private int klassId;
     private int studentId;
     private int courseId;
+
+    private int teamId;
+
 
     public int getKlassId() {
         return klassId;
@@ -31,5 +35,14 @@ public class KlassStudent {
     public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
 
 }

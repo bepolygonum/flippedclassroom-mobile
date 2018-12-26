@@ -11,4 +11,19 @@
         SELECT course_1_id FROM  standard_seminar_system.conflict_course_strategy WHERE course_2_id=#{courseId}
     </select>
 
+    <select id="getIdByCourseID"  resultType="Integer">
+        SELECT  IFNULL(MAX(id),0)AS id  FROM  standard_seminar_system.conflict_course_strategy WHERE course_id=#{courseId}
+    </select>
+
+    <select id="getCourseIdByID"  resultType="Integer">
+        SELECT course_id FROM  standard_seminar_system.conflict_course_strategy WHERE id=#{cid}
+    </select>
+    <select id="getAllConflictId"  resultType="Integer">
+        SELECT id FROM  standard_seminar_system.conflict_course_strategy
+    </select>
+    <insert id="createHarfOfConflictCourse" >
+        insert into standard_seminar_system.conflict_course_strategy(id,course_id)
+        values(#{0},#{1});
+    </insert>
+
 </mapper>

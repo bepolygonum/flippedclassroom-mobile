@@ -1,6 +1,7 @@
 package com.entity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
@@ -84,7 +85,7 @@ public class Course {
         this.seminarMainCourseId = seminarMainCourseId;
     }
 
-    public Date getStartTime() {
+  /*  public Date getStartTime() {
         return startTime;
     }
 
@@ -106,7 +107,9 @@ public class Course {
 
     public void setTeamEndTime(String teamEndTime) {
         this.teamEndTime = teamEndTime;
+
     }
+    */
 
     private String introduction;
     private int presentationPercentage;
@@ -115,7 +118,26 @@ public class Course {
     private int teamMainCourseId;
     private int seminarMainCourseId;
 
-    private Date startTime;
+    public Timestamp getTeamStartTime() {
+        return teamStartTime;
+    }
+
+    public void setTeamStartTime(Timestamp teamStartTime) {
+        this.teamStartTime = teamStartTime;
+    }
+
+    public Timestamp getTeamEndTime() {
+        return teamEndTime;
+    }
+
+    public void setTeamEndTime(Timestamp teamEndTime) {
+        this.teamEndTime = teamEndTime;
+    }
+
+    private Timestamp teamStartTime;
+    private Timestamp teamEndTime;
+
+   /* private Date startTime;
     private String teamStartTime;
 
     private Date endTime;
@@ -138,5 +160,6 @@ public class Course {
         String time = endSdf.format(endTime);
         setTeamEndTime(time);
     }
+*/
 
 }

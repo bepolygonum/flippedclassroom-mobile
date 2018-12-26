@@ -80,4 +80,7 @@ public class KlassServiceImpl {
         return klassSeminarDao.getKlassSeminarByKlassIdSeminarID(list,list1);
     }
 
+    public void createAKlass(int courseId,int grade,int klassSerial,String klassTime,String location)
+    { klassDao.createAKlass(courseId,grade,klassSerial,klassTime,location);}
+
 }

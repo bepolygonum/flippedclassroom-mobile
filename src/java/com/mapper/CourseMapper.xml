@@ -46,4 +46,14 @@
     <select id="getCourseByTeamMainCourseID"  resultMap="courseResultMap">
         SELECT *  FROM  standard_seminar_system.course WHERE team_main_course_id=#{0}
     </select>
+    <select id="getAllCourses"  resultMap="courseResultMap">
+        SELECT *  FROM  standard_seminar_system.course
+    </select>
+    <select id="getCourseByCourseName"  resultMap="courseResultMap">
+        SELECT *  FROM  standard_seminar_system.course WHERE course_name=#{0}
+    </select>
+    <insert id="createACourse" >
+        insert into standard_seminar_system.course(teacher_id,course_name,introduction,presentation_percentage,question_percentage,report_percentage,team_start_time,team_end_time)
+        values(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7});
+    </insert>
 </mapper>

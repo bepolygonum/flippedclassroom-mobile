@@ -5,6 +5,7 @@ import com.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -76,5 +77,15 @@ public class SeminarServiceImpl {
     public List<Attendance> getAttendanceByKlassSeminarId(int klassSeminarId) {
         return  attendanceDao.getAttendanceByKlassSeminarId(klassSeminarId);
 
+    }
+
+    public Seminar getSeminarBySeminarName(String seminarName)
+    {return seminarDao.getSeminarBySeminarName(seminarName);}
+
+    public void createASeminar(int courseId, int roundId, String seminarName, String introduction,
+                               int maxTeam, int isVisible, int seminarSerial, Timestamp startTime, Timestamp endTime)
+    {
+        seminarDao.createASeminar(courseId,roundId, seminarName, introduction,
+                maxTeam,  isVisible, seminarSerial, startTime, endTime);
     }
 }

@@ -7,6 +7,9 @@ public class RoundScore {
     private int roundId;
     private int teamId;
     private double totalScore;
+    private double presentationScore;
+    private double questionScore;
+    private double reportScore;
 
     public int getRoundId() {
         return roundId;
@@ -56,8 +59,6 @@ public class RoundScore {
         this.reportScore = reportScore;
     }
 
-    private double presentationScore;
-    private double questionScore;
-    private double reportScore;
+
 
 }

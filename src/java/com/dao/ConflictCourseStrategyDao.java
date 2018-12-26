@@ -23,4 +23,12 @@ public interface ConflictCourseStrategyDao {
      * @return List of course_1_id
      */
     List<Integer> getCourse1IDByCourseID(int courseId);
+
+    int getIdByCourseID(int courseId);
+
+    List<Integer> getCourseIdByID(int cid);
+
+    List<Integer> getAllConflictId();
+
+    void createHarfOfConflictCourse(int id,int courseId);
 }
