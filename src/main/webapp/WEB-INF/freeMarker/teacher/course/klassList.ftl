@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="../../../../assets/css/admin.css">
     <link rel="stylesheet" href="../../../../assets/css/app.css">
     <script src="../../../../assets/js/echarts.min.js"></script>
-    <style type="text/css">
-        .tdstyle {
-            word-break: keep-all;
-            white-space: nowrap;
-        }
-    </style>
 </head>
 
 <body data-type="index">

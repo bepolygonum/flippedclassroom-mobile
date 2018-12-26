@@ -6,7 +6,7 @@
     <title>个人信息管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="../../../../assets/i/favicon.png">
-    <link rel="stylesheet" href="../../../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../../../assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="../../../../assets/css/admin.css">
     <link rel="stylesheet" href="../../../../assets/css/app.css">
     <script src="../../../../assets/js/echarts.min.js"></script>
@@ -22,7 +22,8 @@
     <div class="am-topbar-brand">
         <h3>账户与设置</h3>
     </div>
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}">
         <span class="am-icon-bars"></span>
     </button>
 
@@ -30,9 +31,12 @@
 
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
 
-            <li><a href="index_message.html" class="tpl-header-list-link"><span class="am-icon-envelope-o"></span> 消息管理</a></li>
-            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-user"></span> 个人信息</a></li>
-            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-leanpub"></span> 讨论课</a></li>
+            <li><a href="index_message.html" class="tpl-header-list-link"><span class="am-icon-envelope-o"></span> 消息管理</a>
+            </li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-user"></span> 个人信息</a>
+            </li>
+            <li><a href="index_personal.html" class="tpl-header-list-link"><span class="am-icon-leanpub"></span> 讨论课</a>
+            </li>
             <li><a href="login.html" class="tpl-header-list-link"><span class="am-icon-power-off"></span>退出</a></li>
 
         </ul>
@@ -56,25 +60,25 @@
                             <label class="myLabel">${student.getAccount()}</label>
                         </div>
                     </div>
-                    <div>
+                    <#if student.getEmail()?exists>
+                        <div>
                         <lable class="mylabel">邮箱：</lable>
                         <div class="myDiv">
-                            <#if student.getEmail()?exists>
-                            <label class="myLabel">${student.getEmail()}</label>
-                            </#if>
-                            <br>
-                            <div style="margin-top: -1rem;margin-left: 8rem">
-                                <a style="font-size: 1rem;color: #1b961b;" href="javascript:doPost('/student/modifyEmail', {'id':'${student.getId()}'})">修改</a>
-                            </div>
+                        <label class="myLabel">${student.getEmail()}</label>
+                    <br>
+                        <div style="margin-top: -1rem;margin-left: 8rem">
+                    <a style="font-size: 1rem;color: #1b961b;"
+                    href="javascript:doPost('/student/modifyEmail', {'id':'${student.getId()}'})">修改</a>
                         </div>
-
-                    </div>
-                    <div >
+                        </div>
+                        </div>
+                    </#if>
+                    <div>
                         <lable class="mylabel">账户密码：</lable>
                         <a href="javascript:doPost('/student/modifyPassword', {'id':'${student.getId()}'})">
-                        <div class="myDiv">
-                            <label class="am-icon-angle-right"></label>
-                        </div>
+                            <div class="myDiv">
+                                <label class="am-icon-angle-right"></label>
+                            </div>
                         </a>
                     </div>
                     <div>
@@ -83,7 +87,9 @@
                             <label class="myLabel">654321@163.com</label>
                         </div>
                     </div>
-                    <button class="am-btn am-btn-success am-radius am-button" style="margin-top: 3rem" type="submit" onclick="window.open('')">退出登录</button>
+                    <button class="am-btn am-btn-success am-radius am-button" style="margin-top: 3rem" type="submit"
+                            onclick="window.open('')">退出登录
+                    </button>
                 </div>
             </div>
 

@@ -74,12 +74,12 @@
                                 </div>
                             </div>
                             <#if courseMemberLimitStrategy?exists>
-                            <div>
+                                <div>
                                 <lable class="mylabel">小组人数：</lable>
                                 <div class="myDiv">
-                                    <label class="myLabel">${courseMemberLimitStrategy.getMinMember()}~${courseMemberLimitStrategy.getMaxMember()}</label>
+                                <label class="myLabel">${courseMemberLimitStrategy.getMinMember()}~${courseMemberLimitStrategy.getMaxMember()}</label>
                                 </div>
-                            </div>
+                                </div>
                             </#if>
                             <div>
                                 <lable class="mylabel">组队开始时间：</lable>
@@ -93,23 +93,22 @@
                                     <label class="myLabel">${course.getTeamEndTime()}</label>
                                 </div>
                             </div>
-                            <div>
-                                <lable class="mylabel">冲突课程：</lable>
-                                <div class="myDiv">
-                                    <#if courseList?exists>
-                                        <#list courseList as conflictCourse>
-                                            <#if teacherList?exists>
-                                                <#list teacherList as teacher>
-                                                    <#if teacher.getId()==conflictCourse.getTeacherId()>
-                                                        <label class="myLabel">${conflictCourse.getCourseName()}(${teacher.getTeacherName()}老师)</label>
-                                                    </#if>
-                                                </#list>
+                            <#if courseList?exists>
+                                <#list courseList as conflictCourse>
+                                    <#if teacherList?exists>
+                                        <#list teacherList as teacher>
+                                            <#if teacher.getId()==conflictCourse.getTeacherId()>
+                                                <div>
+                                                <lable class="mylabel">冲突课程：</lable>
+                                                <div class="myDiv">
+                                                <label class="myLabel">${conflictCourse.getCourseName()}(${teacher.getTeacherName()}老师)</label>
+                                                </div>
+                                                </div>
                                             </#if>
                                         </#list>
                                     </#if>
-
-                                </div>
-                            </div>
+                                </#list>
+                            </#if>
                         </div>
                     </div>
                 </div>
