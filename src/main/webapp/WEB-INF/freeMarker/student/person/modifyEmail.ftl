@@ -10,6 +10,30 @@
     <link rel="stylesheet" href="../../../../assets/css/admin.css">
     <link rel="stylesheet" href="../../../../assets/css/app.css">
     <script src="../../../../assets/js/echarts.min.js"></script>
+    <script>
+        function mailIsAvail() {
+            var x=document.getElementById("email").value
+            if(x==0)
+            {
+                q=document.getElementById("hidemail");
+                q.innerHTML="*请输入新邮箱";
+            }
+            else if(/^[A-Za-z0-9]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(x))
+            {
+                q=document.getElementById("hidemail");
+                q.innerHTML="";
+            }
+            else
+            {
+                q=document.getElementById("hidemail");
+                q.innerHTML="*请输入正确的邮箱格式!";
+            }
+        }
+        
+        function checkmail() {
+            
+        }
+    </script>
 </head>
 
 <body data-type="index">
@@ -47,13 +71,14 @@
                 <div class="am-u-sm-12">
                     <form class="am-form" action="/student/newmail" method="post">
                         <div class="am-form-group">
-                            <input type="email" name="newmail" id="email" placeholder="填写新邮箱">
+                            <input type="email" name="newmail" id="email" placeholder="填写新邮箱"  onblur="mailIsAvail()">
                             <input name="id" value="${student.getId()}" hidden="hidden"/>
+                            <p class="hidden" id="hidemail" style="float: left;font-size: 1rem;color: #be2924 "></p>
                         </div>
                         <div class="am-form-group">
-                            <p style="float: left;font-size: 1 rem;margin-top: 5%; ">邮箱格式如： user@host.domainnames</p>
+                            <p style="float: left;font-size: 1rem;margin-top: 5%; ">邮箱格式如： user@host.domainnames</p>
                         </div>
-                        <button type="submit" class="am-btn am-btn-success" style="width: 100%;margin-top: 1%" >确认提交</button>
+                        <button type="submit" class="am-btn am-btn-success" style="width: 100%;margin-top: 1%" onclick="checkmail()" >确认提交</button>
                     </form>
                 </div>
             </div>

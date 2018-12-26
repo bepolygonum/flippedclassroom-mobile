@@ -47,19 +47,15 @@
                 <div class="am-u-sm-12">
                     <form class="am-form">
                         <div class="am-form-group" style="margin-bottom: 1rem">
-                            <input type="password" class="" id="pwd1" placeholder="新密码">
-                            <p style="font-size: 0.5%;margin-top: 1rem;color: #ababab">可包含数字,字母,下划线,长度不少于6位</p>
+                            <input type="password" class="" id="pwd1" placeholder="原密码">
+                        </div>
+                        <div class="am-form-group" style="margin-bottom: 1rem">
+                            <input type="password" class="" id="pwd1" placeholder="填写密码">
                         </div>
                         <div class="am-form-group">
                             <input type="password" class="" id="pwd2" placeholder="确认密码">
                         </div>
-                        <div class="am-form-group" style="margin-top: -2rem">
-                            <p style="font-size: 1.5rem">发送验证码到邮箱</p>
-                        </div>
-                        <div class="am-form-group" style="margin-top: -2rem">
-                            <input type="text" style="width: 60%;float: left" id="captcha" placeholder="验证码">
-                            <button class="am-btn-success am-btn" style="font-size: 1.5rem;width: 35%;margin-left: 5%;">发送</button>
-                        </div>
+                        <p style="font-size: 0.5%;margin-top: 1rem;color: #ababab">密码长度8-32位，须包含数字、字母、符号至少两种或两种以上元素</p>
                         <button type="submit" class="am-btn am-btn-success" style="width: 100%;">确认提交</button>
                     </form>
                 </div>
