@@ -41,8 +41,8 @@
     </div>
 </header>
 
-<div class="tpl-page-container tpl-page-header-fixed">
-    <div class="tpl-portlet-components">
+<div class="tpl-page-container1 tpl-page-header-fixed">
+    <div class="tpl-portlet-components2">
         <div class="tpl-block">
             <div class="am-g">
                 <div class="am-u-sm-12">

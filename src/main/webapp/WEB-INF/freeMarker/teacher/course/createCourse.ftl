@@ -68,8 +68,8 @@
     </div>
 </header>
 
-<div class="tpl-page-container tpl-page-header-fixed">
-    <div class="tpl-portlet-components">
+<div class="tpl-page-container1 tpl-page-header-fixed">
+    <div class="tpl-portlet-components2">
         <form action="/teacher/course/createCourse" method="post" onsubmit="return test();">
             <hr>
             <input value="${id}" name="id" hidden="hidden">

@@ -57,8 +57,8 @@
     </div>
 </header>
 
-<div class="tpl-page-container tpl-page-header-fixed">
-    <div class="tpl-portlet-components">
+<div class="tpl-page-container1 tpl-page-header-fixed">
+    <div class="tpl-portlet-components2">
         <#if roundList?exists>
             <#list roundList as round>
                 <div class="tpl-block">

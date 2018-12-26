@@ -46,8 +46,8 @@
     </div>
 </header>
 
-<div class="tpl-page-container tpl-page-header-fixed">
-    <div class="tpl-portlet-components">
+<div class="tpl-page-container1 tpl-page-header-fixed">
+    <div class="tpl-portlet-components2">
         <hr/>
         <div style="text-align: center">
             <h3 style="color:#337ab7">${course.getIntroduction()}</h3>
